@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B45301BC704EFDA6BE9EBC8 /* Pods_Venew.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5704C1AF74A3F4A79ADCDBB5 /* Pods_Venew.framework */; };
 		C4FE4CB820E9EDA900390B4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FE4CB720E9EDA900390B4C /* AppDelegate.swift */; };
 		C4FE4CBA20E9EDA900390B4C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FE4CB920E9EDA900390B4C /* ViewController.swift */; };
 		C4FE4CBD20E9EDA900390B4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4FE4CBB20E9EDA900390B4C /* Main.storyboard */; };
 		C4FE4CBF20E9EDAA00390B4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4FE4CBE20E9EDAA00390B4C /* Assets.xcassets */; };
 		C4FE4CC220E9EDAA00390B4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4FE4CC020E9EDAA00390B4C /* LaunchScreen.storyboard */; };
 		C4FE4CCD20E9EDAA00390B4C /* VenewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FE4CCC20E9EDAA00390B4C /* VenewTests.swift */; };
+		DD9514C6976783434DA2FD5F /* Pods_VenewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC38BACC864AC04037425B85 /* Pods_VenewTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +28,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		47B43FAD00F2CFC79482E0E8 /* Pods-Venew.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venew.release.xcconfig"; path = "Pods/Target Support Files/Pods-Venew/Pods-Venew.release.xcconfig"; sourceTree = "<group>"; };
+		5704C1AF74A3F4A79ADCDBB5 /* Pods_Venew.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Venew.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DFE4C19267A8733D1998F20 /* Pods-VenewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VenewTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VenewTests/Pods-VenewTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B5DD81047E0AE7568FDD6666 /* Pods-VenewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VenewTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VenewTests/Pods-VenewTests.release.xcconfig"; sourceTree = "<group>"; };
 		C4FE4CB420E9EDA900390B4C /* Venew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Venew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4FE4CB720E9EDA900390B4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4FE4CB920E9EDA900390B4C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +42,8 @@
 		C4FE4CC820E9EDAA00390B4C /* VenewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VenewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4FE4CCC20E9EDAA00390B4C /* VenewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenewTests.swift; sourceTree = "<group>"; };
 		C4FE4CCE20E9EDAA00390B4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC38BACC864AC04037425B85 /* Pods_VenewTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VenewTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2F2DBA0502C5DF7ACD07697 /* Pods-Venew.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venew.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Venew/Pods-Venew.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B45301BC704EFDA6BE9EBC8 /* Pods_Venew.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD9514C6976783434DA2FD5F /* Pods_VenewTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +72,8 @@
 				C4FE4CB620E9EDA900390B4C /* Venew */,
 				C4FE4CCB20E9EDAA00390B4C /* VenewTests */,
 				C4FE4CB520E9EDA900390B4C /* Products */,
+				C9EFBEADACC6BE2AE46037D6 /* Pods */,
+				DB539FEA0799C40B01F1F717 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +108,26 @@
 			path = VenewTests;
 			sourceTree = "<group>";
 		};
+		C9EFBEADACC6BE2AE46037D6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F2F2DBA0502C5DF7ACD07697 /* Pods-Venew.debug.xcconfig */,
+				47B43FAD00F2CFC79482E0E8 /* Pods-Venew.release.xcconfig */,
+				9DFE4C19267A8733D1998F20 /* Pods-VenewTests.debug.xcconfig */,
+				B5DD81047E0AE7568FDD6666 /* Pods-VenewTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DB539FEA0799C40B01F1F717 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5704C1AF74A3F4A79ADCDBB5 /* Pods_Venew.framework */,
+				DC38BACC864AC04037425B85 /* Pods_VenewTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +135,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C4FE4CD120E9EDAA00390B4C /* Build configuration list for PBXNativeTarget "Venew" */;
 			buildPhases = (
+				9E711EE2581D13DEC628E7BC /* [CP] Check Pods Manifest.lock */,
 				C4FE4CB020E9EDA900390B4C /* Sources */,
 				C4FE4CB120E9EDA900390B4C /* Frameworks */,
 				C4FE4CB220E9EDA900390B4C /* Resources */,
+				725E2D13A6870C8BB002A7B6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -120,9 +154,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C4FE4CD420E9EDAA00390B4C /* Build configuration list for PBXNativeTarget "VenewTests" */;
 			buildPhases = (
+				E9F76FA26B5D26D94167D33F /* [CP] Check Pods Manifest.lock */,
 				C4FE4CC420E9EDAA00390B4C /* Sources */,
 				C4FE4CC520E9EDAA00390B4C /* Frameworks */,
 				C4FE4CC620E9EDAA00390B4C /* Resources */,
+				5AB7A17BEE860DA142C70361 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -191,6 +227,89 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5AB7A17BEE860DA142C70361 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-VenewTests/Pods-VenewTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VenewTests/Pods-VenewTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		725E2D13A6870C8BB002A7B6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Venew/Pods-Venew-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxMKMapView/RxMKMapView.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxMKMapView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Venew/Pods-Venew-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E711EE2581D13DEC628E7BC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Venew-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9F76FA26B5D26D94167D33F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VenewTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C4FE4CB020E9EDA900390B4C /* Sources */ = {
@@ -356,15 +475,13 @@
 		};
 		C4FE4CD220E9EDAA00390B4C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2F2DBA0502C5DF7ACD07697 /* Pods-Venew.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RBE99A2Y96;
 				INFOPLIST_FILE = Venew/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DrDoom.Venew;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -374,15 +491,13 @@
 		};
 		C4FE4CD320E9EDAA00390B4C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47B43FAD00F2CFC79482E0E8 /* Pods-Venew.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RBE99A2Y96;
 				INFOPLIST_FILE = Venew/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DrDoom.Venew;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -392,17 +507,14 @@
 		};
 		C4FE4CD520E9EDAA00390B4C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9DFE4C19267A8733D1998F20 /* Pods-VenewTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RBE99A2Y96;
 				INFOPLIST_FILE = VenewTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DrDoom.VenewTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -413,17 +525,14 @@
 		};
 		C4FE4CD620E9EDAA00390B4C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5DD81047E0AE7568FDD6666 /* Pods-VenewTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RBE99A2Y96;
 				INFOPLIST_FILE = VenewTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DrDoom.VenewTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

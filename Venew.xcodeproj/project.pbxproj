@@ -8,14 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		4B45301BC704EFDA6BE9EBC8 /* Pods_Venew.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5704C1AF74A3F4A79ADCDBB5 /* Pods_Venew.framework */; };
+		C42CE0DD20EA7FFD008C75DD /* NowPlayingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42CE0DC20EA7FFD008C75DD /* NowPlayingView.swift */; };
 		C4FE4CB820E9EDA900390B4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FE4CB720E9EDA900390B4C /* AppDelegate.swift */; };
-		C4FE4CBA20E9EDA900390B4C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FE4CB920E9EDA900390B4C /* ViewController.swift */; };
 		C4FE4CBD20E9EDA900390B4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4FE4CBB20E9EDA900390B4C /* Main.storyboard */; };
 		C4FE4CBF20E9EDAA00390B4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4FE4CBE20E9EDAA00390B4C /* Assets.xcassets */; };
 		C4FE4CC220E9EDAA00390B4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4FE4CC020E9EDAA00390B4C /* LaunchScreen.storyboard */; };
 		C4FE4CCD20E9EDAA00390B4C /* VenewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FE4CCC20E9EDAA00390B4C /* VenewTests.swift */; };
 		C4FE4CDB20E9EFA900390B4C /* AppCoordinatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FE4CD720E9EFA300390B4C /* AppCoordinatorSpec.swift */; };
 		C4FE4CDC20E9EFAC00390B4C /* CoordinatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FE4CD820E9EFA400390B4C /* CoordinatorSpec.swift */; };
+		C4FE4CE320E9F26900390B4C /* MockCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FE4CDE20E9F06F00390B4C /* MockCoordinator.swift */; };
+		C4FE4CE520E9F26900390B4C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FE4CDF20E9F07000390B4C /* Coordinator.swift */; };
+		C4FE4CE620E9F2E600390B4C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FE4CDF20E9F07000390B4C /* Coordinator.swift */; };
+		C4FE4CE720E9F2F700390B4C /* MockCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FE4CDE20E9F06F00390B4C /* MockCoordinator.swift */; };
+		C4FE4CE920E9F38900390B4C /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FE4CE820E9F38900390B4C /* AppCoordinator.swift */; };
+		C4FE4CEA20E9F39000390B4C /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FE4CE820E9F38900390B4C /* AppCoordinator.swift */; };
+		C4FE4CEC20E9F73200390B4C /* NowPlayingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FE4CEB20E9F73200390B4C /* NowPlayingCoordinator.swift */; };
+		C4FE4CEE20E9F8A900390B4C /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FE4CED20E9F8A900390B4C /* NowPlayingViewController.swift */; };
+		C4FE4CF020E9F91800390B4C /* NowPlayingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FE4CEF20E9F91800390B4C /* NowPlayingViewModel.swift */; };
 		DD9514C6976783434DA2FD5F /* Pods_VenewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC38BACC864AC04037425B85 /* Pods_VenewTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,9 +43,9 @@
 		5704C1AF74A3F4A79ADCDBB5 /* Pods_Venew.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Venew.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DFE4C19267A8733D1998F20 /* Pods-VenewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VenewTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VenewTests/Pods-VenewTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B5DD81047E0AE7568FDD6666 /* Pods-VenewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VenewTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VenewTests/Pods-VenewTests.release.xcconfig"; sourceTree = "<group>"; };
+		C42CE0DC20EA7FFD008C75DD /* NowPlayingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingView.swift; sourceTree = "<group>"; };
 		C4FE4CB420E9EDA900390B4C /* Venew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Venew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4FE4CB720E9EDA900390B4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C4FE4CB920E9EDA900390B4C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C4FE4CBC20E9EDA900390B4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C4FE4CBE20E9EDAA00390B4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4FE4CC120E9EDAA00390B4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -46,6 +55,12 @@
 		C4FE4CCE20E9EDAA00390B4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4FE4CD720E9EFA300390B4C /* AppCoordinatorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinatorSpec.swift; sourceTree = "<group>"; };
 		C4FE4CD820E9EFA400390B4C /* CoordinatorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorSpec.swift; sourceTree = "<group>"; };
+		C4FE4CDE20E9F06F00390B4C /* MockCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockCoordinator.swift; sourceTree = "<group>"; };
+		C4FE4CDF20E9F07000390B4C /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		C4FE4CE820E9F38900390B4C /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		C4FE4CEB20E9F73200390B4C /* NowPlayingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingCoordinator.swift; sourceTree = "<group>"; };
+		C4FE4CED20E9F8A900390B4C /* NowPlayingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
+		C4FE4CEF20E9F91800390B4C /* NowPlayingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingViewModel.swift; sourceTree = "<group>"; };
 		DC38BACC864AC04037425B85 /* Pods_VenewTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VenewTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2F2DBA0502C5DF7ACD07697 /* Pods-Venew.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venew.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Venew/Pods-Venew.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,11 +109,17 @@
 			isa = PBXGroup;
 			children = (
 				C4FE4CB720E9EDA900390B4C /* AppDelegate.swift */,
-				C4FE4CB920E9EDA900390B4C /* ViewController.swift */,
 				C4FE4CBB20E9EDA900390B4C /* Main.storyboard */,
 				C4FE4CBE20E9EDAA00390B4C /* Assets.xcassets */,
 				C4FE4CC020E9EDAA00390B4C /* LaunchScreen.storyboard */,
 				C4FE4CC320E9EDAA00390B4C /* Info.plist */,
+				C4FE4CDF20E9F07000390B4C /* Coordinator.swift */,
+				C4FE4CDE20E9F06F00390B4C /* MockCoordinator.swift */,
+				C4FE4CE820E9F38900390B4C /* AppCoordinator.swift */,
+				C4FE4CEB20E9F73200390B4C /* NowPlayingCoordinator.swift */,
+				C42CE0DC20EA7FFD008C75DD /* NowPlayingView.swift */,
+				C4FE4CEF20E9F91800390B4C /* NowPlayingViewModel.swift */,
+				C4FE4CED20E9F8A900390B4C /* NowPlayingViewController.swift */,
 			);
 			path = Venew;
 			sourceTree = "<group>";
@@ -264,6 +285,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Venew/Pods-Venew-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxMKMapView/RxMKMapView.framework",
+				"${BUILT_PRODUCTS_DIR}/RxOptional/RxOptional.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
@@ -271,6 +293,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxMKMapView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxOptional.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
@@ -322,8 +345,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4FE4CBA20E9EDA900390B4C /* ViewController.swift in Sources */,
+				C42CE0DD20EA7FFD008C75DD /* NowPlayingView.swift in Sources */,
+				C4FE4CEC20E9F73200390B4C /* NowPlayingCoordinator.swift in Sources */,
 				C4FE4CB820E9EDA900390B4C /* AppDelegate.swift in Sources */,
+				C4FE4CEE20E9F8A900390B4C /* NowPlayingViewController.swift in Sources */,
+				C4FE4CF020E9F91800390B4C /* NowPlayingViewModel.swift in Sources */,
+				C4FE4CEA20E9F39000390B4C /* AppCoordinator.swift in Sources */,
+				C4FE4CE520E9F26900390B4C /* Coordinator.swift in Sources */,
+				C4FE4CE320E9F26900390B4C /* MockCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,8 +360,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4FE4CE920E9F38900390B4C /* AppCoordinator.swift in Sources */,
+				C4FE4CE620E9F2E600390B4C /* Coordinator.swift in Sources */,
 				C4FE4CCD20E9EDAA00390B4C /* VenewTests.swift in Sources */,
 				C4FE4CDB20E9EFA900390B4C /* AppCoordinatorSpec.swift in Sources */,
+				C4FE4CE720E9F2F700390B4C /* MockCoordinator.swift in Sources */,
 				C4FE4CDC20E9EFAC00390B4C /* CoordinatorSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

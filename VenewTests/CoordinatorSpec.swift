@@ -17,8 +17,7 @@ class CoordinatorSpec: QuickSpec {
         describe("A Coordinator") {
             context("after being properly initialized") {
                 let navController = UINavigationController()
-                let mockDependency = MockDependency()
-                let coordinator: Coordinator = MockCoordinator(rootNav: navController, dependency: mockDependency)
+                let coordinator: Coordinator = MockCoordinator(rootNav: navController)
                 
                 it("should have a navigation controller") {
                     expect(coordinator.navigationController).toNot(beNil())

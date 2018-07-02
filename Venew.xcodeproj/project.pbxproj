@@ -14,6 +14,8 @@
 		C4FE4CBF20E9EDAA00390B4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4FE4CBE20E9EDAA00390B4C /* Assets.xcassets */; };
 		C4FE4CC220E9EDAA00390B4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4FE4CC020E9EDAA00390B4C /* LaunchScreen.storyboard */; };
 		C4FE4CCD20E9EDAA00390B4C /* VenewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FE4CCC20E9EDAA00390B4C /* VenewTests.swift */; };
+		C4FE4CDB20E9EFA900390B4C /* AppCoordinatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FE4CD720E9EFA300390B4C /* AppCoordinatorSpec.swift */; };
+		C4FE4CDC20E9EFAC00390B4C /* CoordinatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FE4CD820E9EFA400390B4C /* CoordinatorSpec.swift */; };
 		DD9514C6976783434DA2FD5F /* Pods_VenewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC38BACC864AC04037425B85 /* Pods_VenewTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +44,8 @@
 		C4FE4CC820E9EDAA00390B4C /* VenewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VenewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4FE4CCC20E9EDAA00390B4C /* VenewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenewTests.swift; sourceTree = "<group>"; };
 		C4FE4CCE20E9EDAA00390B4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4FE4CD720E9EFA300390B4C /* AppCoordinatorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinatorSpec.swift; sourceTree = "<group>"; };
+		C4FE4CD820E9EFA400390B4C /* CoordinatorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorSpec.swift; sourceTree = "<group>"; };
 		DC38BACC864AC04037425B85 /* Pods_VenewTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VenewTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2F2DBA0502C5DF7ACD07697 /* Pods-Venew.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venew.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Venew/Pods-Venew.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +106,8 @@
 		C4FE4CCB20E9EDAA00390B4C /* VenewTests */ = {
 			isa = PBXGroup;
 			children = (
+				C4FE4CD720E9EFA300390B4C /* AppCoordinatorSpec.swift */,
+				C4FE4CD820E9EFA400390B4C /* CoordinatorSpec.swift */,
 				C4FE4CCC20E9EDAA00390B4C /* VenewTests.swift */,
 				C4FE4CCE20E9EDAA00390B4C /* Info.plist */,
 			);
@@ -326,6 +332,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4FE4CCD20E9EDAA00390B4C /* VenewTests.swift in Sources */,
+				C4FE4CDB20E9EFA900390B4C /* AppCoordinatorSpec.swift in Sources */,
+				C4FE4CDC20E9EFAC00390B4C /* CoordinatorSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,7 +489,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RBE99A2Y96;
 				INFOPLIST_FILE = Venew/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.DrDoom.Venew;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -497,7 +508,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RBE99A2Y96;
 				INFOPLIST_FILE = Venew/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.DrDoom.Venew;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -514,7 +528,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RBE99A2Y96;
 				INFOPLIST_FILE = VenewTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.DrDoom.VenewTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -532,7 +550,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RBE99A2Y96;
 				INFOPLIST_FILE = VenewTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.DrDoom.VenewTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

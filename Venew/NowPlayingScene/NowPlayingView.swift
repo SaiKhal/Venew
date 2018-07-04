@@ -27,6 +27,11 @@ class NowPlayingView: UIView {
         return label
     }()
     
+    lazy var locailityLabel: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    
     lazy var playButton: UIButton = {
         let button = UIButton()
         button.setTitle("Play", for: .normal)
@@ -60,6 +65,7 @@ class NowPlayingView: UIView {
         setupSongLabel()
         setupArtistLabel()
         setupMediaControllerButtons()
+        setupLocalityLabel()
     }
     
     private func setupImageView() {
@@ -95,6 +101,14 @@ class NowPlayingView: UIView {
         buttonStackView.snp.makeConstraints { make in
             make.centerX.equalTo(self.snp.centerX)
             make.top.equalTo(currentArtistLabel.snp.bottom).offset(30)
+        }
+    }
+    
+    private func setupLocalityLabel() {
+        self.addSubview(locailityLabel)
+        locailityLabel.snp.makeConstraints { make in
+            make.left.equalTo(self.snp.left).offset(20)
+            make.bottom.equalTo(self.snp.bottom).offset(-20)
         }
     }
 }

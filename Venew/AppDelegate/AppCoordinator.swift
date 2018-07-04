@@ -9,12 +9,22 @@
 import UIKit
 
 final class AppCoordinator: Coordinator {
+    // MARK: - Properties
+    let window: UIWindow
     
     var navigationController: UINavigationController
     var childCoordinators = [Coordinator]()
     
-    init(rootNav navigationController: UINavigationController) {
-        self.navigationController = navigationController
+    // MARK: - Services
+    let locationService = LocationService()
+    
+    init(window: UIWindow) {
+        let navController = UINavigationController()
+        
+        self.window = window
+        window.rootViewController = navController
+        
+        navigationController = navController
     }
     
     public func start() {
@@ -22,7 +32,7 @@ final class AppCoordinator: Coordinator {
     }
     
     private func showNowPlaying()  {
-        let nowPlayingCoordinator = NowPlayingCoordinator(rootNav: navigationController)
+        let nowPlayingCoordinator = NowPlayingCoordinator(rootNav: navigationController, locationService: locationService)
         addChildCoordinator(nowPlayingCoordinator)
         nowPlayingCoordinator.start()
     }

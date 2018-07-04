@@ -16,9 +16,8 @@ class AppCoordinatorSpec: QuickSpec {
     override func spec() {
         describe("App Coordinator") {
             context("after being properly initialized") {
-                let navController = UINavigationController()
-                let coordinator: AppCoordinator = AppCoordinator(rootNav: navController)
-
+                let window = UIWindow()
+                let coordinator: AppCoordinator = AppCoordinator(window: window)
                 
                 context("when you call start") {
                     beforeEach {

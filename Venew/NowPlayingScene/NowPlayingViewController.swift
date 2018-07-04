@@ -49,6 +49,10 @@ class NowPlayingViewController: UIViewController {
             .drive(contentView.imageview.rx.image)
             .disposed(by: bag)
         
+        viewModel.outputs.areaName
+            .drive(contentView.locailityLabel.rx.text)
+            .disposed(by: bag)
+        
         viewModel.outputs.playbackState
             .map { state -> String in
                 if state == "playing" {
@@ -57,7 +61,7 @@ class NowPlayingViewController: UIViewController {
                     return "Play"
                 }
             }
-            .bind(to: contentView.playButton.rx.title())
+            .drive(contentView.playButton.rx.title())
             .disposed(by: bag)
         
         /// Inputs

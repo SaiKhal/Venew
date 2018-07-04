@@ -15,10 +15,13 @@ final class NowPlayingCoordinator: Coordinator {
     
     var nowPlayingViewController: NowPlayingViewController
     
-    init(rootNav navigationController: UINavigationController) {
+    let locationService: LocationService
+    
+    init(rootNav navigationController: UINavigationController, locationService: LocationService) {
         self.navigationController = navigationController
+        self.locationService = locationService
         
-        let viewModel = NowPlayingViewModel()
+        let viewModel = NowPlayingViewModel(locationService: locationService)
         nowPlayingViewController = NowPlayingViewController(with: viewModel)
     }
     

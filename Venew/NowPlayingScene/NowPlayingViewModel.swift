@@ -20,8 +20,11 @@ protocol NowPlayingViewModelInputs {
 }
 
 protocol NowPlayingViewModelOutputs {
-    var playbackState: Observable<String> { get }
+    var playbackState: Driver<String> { get }
     var currentMediaItem: Driver<MPMediaItem> { get }
+    var userLocation: Driver<CLLocation> { get }
+    var authorized: Driver<Bool> { get }
+    var areaName: Driver<String> { get }
 }
 
 protocol NowPlayingViewModelServices {
@@ -78,8 +81,11 @@ final class NowPlayingViewModel: NowPlayingViewModelType, NowPlayingViewModelInp
     }
     
     // MARK: - Outputs
-    let playbackState: Observable<String>
+    let playbackState: Driver<String>
     let currentMediaItem: Driver<MPMediaItem>
+    let userLocation: Driver<CLLocation>
+    let authorized: Driver<Bool>
+    let areaName: Driver<String>
     
     // MARK: - Private
     var rxCurrentMediaItem: BehaviorSubject<MPMediaItem>
@@ -87,8 +93,11 @@ final class NowPlayingViewModel: NowPlayingViewModelType, NowPlayingViewModelInp
     
     // MARK: - Services
     var mediaPlayer: MPMusicPlayerController
+    var locationService: LocationService
 
-    init() {
+    init(locationService: LocationService) {
+        self.locationService = locationService
+        
         mediaPlayer = MPMusicPlayerController.systemMusicPlayer
         mediaPlayer.beginGeneratingPlaybackNotifications()
         
@@ -101,7 +110,12 @@ final class NowPlayingViewModel: NowPlayingViewModelType, NowPlayingViewModelInp
             .asDriver(onErrorJustReturn: MPMediaItem())
         
         playbackState = rxState
-            .asObservable()
+            .asDriver(onErrorJustReturn: "Driver Error (playbackState): Could not find playback state")
+
+        userLocation = locationService.userLocation
+        authorized = locationService.authorized
+        areaName = locationService.areaName
+        
         
 //        Observe now playing item
         notificationCenter.addObserver(self,

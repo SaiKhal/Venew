@@ -17,9 +17,11 @@ protocol NowPlayingViewModelInputs {
     func play()
     func rewind()
     func next()
+    func identifySong()
 }
 
 protocol NowPlayingViewModelOutputs {
+    var showMusicID: Observable<Void> { get }
     var playbackState: Driver<String> { get }
     var currentMediaItem: Driver<MPMediaItem> { get }
     var userLocation: Driver<CLLocation> { get }
@@ -57,6 +59,8 @@ extension MPMusicPlaybackState {
 }
 
 final class NowPlayingViewModel: NowPlayingViewModelType, NowPlayingViewModelInputs, NowPlayingViewModelOutputs, NowPlayingViewModelServices {
+    var showMusicID: Observable<Void>
+    
     
     var inputs: NowPlayingViewModelInputs { return self }
     var outputs: NowPlayingViewModelOutputs { return self }
@@ -80,6 +84,10 @@ final class NowPlayingViewModel: NowPlayingViewModelType, NowPlayingViewModelInp
         mediaPlayer.skipToNextItem()
     }
     
+    func identifySong() {
+        rxShowMusicID.onNext(())
+    }
+    
     // MARK: - Outputs
     let playbackState: Driver<String>
     let currentMediaItem: Driver<MPMediaItem>
@@ -90,6 +98,7 @@ final class NowPlayingViewModel: NowPlayingViewModelType, NowPlayingViewModelInp
     // MARK: - Private
     var rxCurrentMediaItem: BehaviorSubject<MPMediaItem>
     var rxState: BehaviorSubject<String>
+    var rxShowMusicID = PublishSubject<Void>()
     
     // MARK: - Services
     var mediaPlayer: MPMusicPlayerController
@@ -115,6 +124,7 @@ final class NowPlayingViewModel: NowPlayingViewModelType, NowPlayingViewModelInp
         userLocation = locationService.userLocation
         authorized = locationService.authorized
         areaName = locationService.areaName
+        showMusicID = rxShowMusicID.asObservable()
         
         
 //        Observe now playing item

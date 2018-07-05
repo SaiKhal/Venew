@@ -17,6 +17,7 @@ final class AppCoordinator: Coordinator {
     
     // MARK: - Services
     let locationService = LocationService()
+    let musicIDService = MusicIdentifier()
     
     init(window: UIWindow) {
         let navController = UINavigationController()
@@ -32,7 +33,7 @@ final class AppCoordinator: Coordinator {
     }
     
     private func showNowPlaying()  {
-        let nowPlayingCoordinator = NowPlayingCoordinator(rootNav: navigationController, locationService: locationService)
+        let nowPlayingCoordinator = NowPlayingCoordinator(rootNav: navigationController, locationService: locationService, musicIDService: musicIDService)
         addChildCoordinator(nowPlayingCoordinator)
         nowPlayingCoordinator.start()
     }

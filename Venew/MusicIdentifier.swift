@@ -10,25 +10,29 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-protocol SongFinder {
-    func startRecognition()
-    
-    
-    var song: Driver<SongACR> { get }
-    
-    func handleState(_ state: String) -> Void
-    func handleVolume(_ volume: Float) ->  Void
-    func handleResult(_ result: String, resType: ACRCloudResultType) -> Void
-}
-
 class MusicIdentifier {
+    typealias MusicIDResultType = Result<SongACR, RecognitionError>
+    enum RecognitionError: Error, CustomStringConvertible {
+        case CouldNotFindSong
+        case DriverError
+        
+        var description: String {
+            switch self {
+            case .CouldNotFindSong:
+                return "Could not find song"
+            case .DriverError:
+                return "Sequence expeirence error"
+            }
+        }
+    }
+    
     var client: ACRCloudRecognition
     let bag = DisposeBag()
     
     var isListening: Driver<Bool>
-    var song: Driver<SongACR>
+    var song: Driver<MusicIDResultType>
     
-    private var songResult = PublishSubject<SongACR>()
+    private var songResult = PublishSubject<MusicIDResultType>()
     private var isActive = BehaviorSubject<Bool>(value: false)
     
     init() {
@@ -49,15 +53,14 @@ class MusicIdentifier {
         }
         
         song = songResult
-            .debug()
-            .asDriver(onErrorDriveWith: Driver.never())
+            .asDriver(onErrorJustReturn: Result.Failure(.DriverError))
         
         isListening = isActive
             .asDriver(onErrorJustReturn: false)
         
         _ = isActive
             .filter({ $0 == true })
-            .subscribe(onNext: { [weak self] in
+            .subscribe(onNext: { [weak self] _ in
                 self?.client.startRecordRec()
             })
         
@@ -90,13 +93,16 @@ class MusicIdentifier {
         print(result)
         print(resType.rawValue)
         
-        guard resType.rawValue > -1 else { return }
+        guard resType.rawValue > -1 else {
+            self.songResult.onNext(Result.Failure(.CouldNotFindSong))
+            return
+        }
         
         DispatchQueue.main.async {
             if let data = result.data(using: .utf8) {
                 let decoder = JSONDecoder()
                 let song = try! decoder.decode(SongACR.self, from: data)
-                self.songResult.onNext(song)
+                self.songResult.onNext(Result.Success(song))
                 print("OnNext")
             }
         }

@@ -32,7 +32,6 @@ final class LocationService {
         
         areaName = userLocation
             .asObservable()
-            .debug()
             .flatMapLatest(geocoder.placemark)
             .debug()
             .map { $0.locality ?? "No locaility given" }
@@ -51,10 +50,10 @@ final class LocationService {
 }
 
 extension CLGeocoder {
+    
     func placemark(location: CLLocation) -> Observable<CLPlacemark> {
         
         return Observable.create { observer in
-            
             self.reverseGeocodeLocation(location, completionHandler: { placemarks, error in
                 if error != nil {
                     print(error!)

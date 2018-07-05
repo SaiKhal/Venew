@@ -16,6 +16,7 @@ class NowPlayingViewController: UIViewController {
     let viewModel: NowPlayingViewModelType
     let contentView = NowPlayingView()
     let bag = DisposeBag()
+    let musicRec = MusicIdentifier()
     
     init(with nowPlayingViewModel: NowPlayingViewModelType) {
         viewModel = nowPlayingViewModel
@@ -64,6 +65,10 @@ class NowPlayingViewController: UIViewController {
             .drive(contentView.playButton.rx.title())
             .disposed(by: bag)
         
+        musicRec.isListening
+            .drive(contentView.recordingIndicator.rx.isAnimating)
+            .disposed(by: bag)
+        
         /// Inputs
         contentView.playButton.rx.tap.bind { [weak self] in
             self?.viewModel.inputs.play()
@@ -75,6 +80,10 @@ class NowPlayingViewController: UIViewController {
         
         contentView.nextButton.rx.tap.bind { [weak self] in
             self?.viewModel.inputs.next()
+            }.disposed(by: bag)
+        
+        contentView.recordButton.rx.tap.bind { [weak self] in
+            self?.musicRec.startRecognition()
             }.disposed(by: bag)
     }
 }

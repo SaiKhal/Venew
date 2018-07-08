@@ -9,12 +9,19 @@
 import Foundation
 import UIKit
 import SnapKit
+import SwiftSiriWaveformView
 
 class MusicIDView: UIView {
     
     lazy var songNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Look For Songs"
+        return label
+    }()
+    
+    lazy var songArtistLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Look For Artist"
         return label
     }()
     
@@ -32,6 +39,13 @@ class MusicIDView: UIView {
         return button
     }()
     
+    lazy var audioWaveform: SwiftSiriWaveformView = {
+        let waveform = SwiftSiriWaveformView()
+        waveform.amplitude = 0.0
+        waveform.backgroundColor = .blue
+        return waveform
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         setup()
@@ -44,8 +58,10 @@ class MusicIDView: UIView {
     func setup() {
         self.backgroundColor = .white
         setupNameLabel()
+        setupArtistLabel()
         setupRecordButton()
         setupSpinner()
+        setupAudioWaveform()
     }
     
     func setupNameLabel() {
@@ -55,10 +71,18 @@ class MusicIDView: UIView {
         }
     }
     
+    func setupArtistLabel() {
+        self.addSubview(songArtistLabel)
+        songArtistLabel.snp.makeConstraints { make in
+            make.top.equalTo(songNameLabel.snp.bottom).offset(20)
+            make.centerX.equalTo(self.snp.centerX)
+        }
+    }
+    
     func setupRecordButton() {
         self.addSubview(recordButton)
         recordButton.snp.makeConstraints { make in
-            make.top.equalTo(songNameLabel.snp.bottom).offset(20)
+            make.top.equalTo(songArtistLabel.snp.bottom).offset(20)
             make.centerX.equalTo(self.snp.centerX)
         }
     }
@@ -68,6 +92,16 @@ class MusicIDView: UIView {
         spinner.snp.makeConstraints { make in
             make.top.equalTo(recordButton.snp.bottom).offset(20)
             make.centerX.equalTo(recordButton.snp.centerX)
+        }
+    }
+    
+    func setupAudioWaveform() {
+        self.addSubview(audioWaveform)
+        audioWaveform.snp.makeConstraints { make in
+            make.bottom.equalTo(songNameLabel.snp.top).offset(-20)
+            make.centerX.equalTo(recordButton.snp.centerX)
+            make.height.equalTo(self.snp.width).multipliedBy(0.7)
+            make.width.equalTo(audioWaveform.snp.height)
         }
     }
 }

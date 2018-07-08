@@ -27,6 +27,29 @@ class MusicIDViewController: UIViewController {
             .drive(contentView.songNameLabel.rx.text)
             .disposed(by: bag)
         
+        viewModel.outputs.songArtist
+            .drive(contentView.songArtistLabel.rx.text)
+            .disposed(by: bag)
+        
+        viewModel.outputs.volume
+            .drive(onNext: { volume in
+//                print(volume)
+            }).disposed(by: bag)
+        
+        let timer = Observable<Int>
+            .interval(0.009, scheduler: MainScheduler.instance)
+        
+        Observable
+            .combineLatest(viewModel.outputs.volume.asObservable().map { CGFloat($0 * 6) },
+                           timer,
+                           resultSelector: { change, _ in change })
+//            .debug()
+            //.scan(1) { (last, change) in return last == 1 ? -change : -last }
+            //.debug()
+            .subscribe(onNext: { change in
+                self.updateWaveform(change: change)
+            }).disposed(by: bag)
+        
         // MARK: - Inputs
         contentView.recordButton.rx.tap
             .bind { [weak self] in self?.viewModel.identifySong() }
@@ -40,6 +63,11 @@ class MusicIDViewController: UIViewController {
         bindToViewModel()
     }
     
+    deinit {
+        viewModel.viewDidDisappear()
+        print("LEAVING")
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -47,5 +75,13 @@ class MusicIDViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .green
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        viewModel.viewDidAppear()
+    }
+    
+    func updateWaveform(change: CGFloat) {
+        self.contentView.audioWaveform.amplitude = change / 5
     }
 }

@@ -12,11 +12,15 @@ import RxCocoa
 
 protocol MusicIDViewModelInputs {
     func identifySong()
+    func viewDidAppear()
+    func viewDidDisappear()
 }
 
 protocol MusicIDViewModelOutputs {
     var isRecording: Driver<Bool> { get }
     var songName: Driver<String> { get }
+    var songArtist: Driver<String> { get }
+    var volume: Driver<Float> { get }
 }
 
 protocol MusicIDViewModelServices {
@@ -32,6 +36,14 @@ protocol MusicIDViewModelType {
 
 final class MusicIDViewModel: MusicIDViewModelType, MusicIDViewModelInputs, MusicIDViewModelOutputs, MusicIDViewModelServices {
     
+    func viewDidAppear() {
+        musicIdentifier.startRecognition()
+    }
+    
+    func viewDidDisappear() {
+        musicIdentifier.stopRecognition()
+    }
+    
     func identifySong() {
         musicIdentifier.startRecognition()
     }
@@ -40,7 +52,8 @@ final class MusicIDViewModel: MusicIDViewModelType, MusicIDViewModelInputs, Musi
     
     var isRecording: Driver<Bool>
     var songName: Driver<String>
-    
+    var volume: Driver<Float>
+    var songArtist: Driver<String>
     
     var inputs: MusicIDViewModelInputs { return self }
     var outputs: MusicIDViewModelOutputs { return self }
@@ -49,8 +62,21 @@ final class MusicIDViewModel: MusicIDViewModelType, MusicIDViewModelInputs, Musi
     init(musicIDService: MusicIdentifier) {
         self.musicIdentifier = musicIDService
         
+        volume = musicIdentifier.volume
         isRecording = musicIdentifier.isListening
+        
         songName = musicIdentifier
+            .song
+            .map { result in
+                switch result {
+                case let .Success(song):
+                    return song.metadata.music.first!.title
+                case let .Failure(error):
+                    return error.description
+                }
+            }
+        
+        songArtist = musicIdentifier
             .song
             .map { result in
                 switch result {
@@ -59,7 +85,9 @@ final class MusicIDViewModel: MusicIDViewModelType, MusicIDViewModelInputs, Musi
                 case let .Failure(error):
                     return error.description
                 }
-            }
+        }
+        
+        
 
         
     }

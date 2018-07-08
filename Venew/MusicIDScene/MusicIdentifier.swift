@@ -31,9 +31,11 @@ class MusicIdentifier {
     
     var isListening: Driver<Bool>
     var song: Driver<MusicIDResultType>
+    var volume: Driver<Float>
     
-    private var songResult = PublishSubject<MusicIDResultType>()
-    private var isActive = BehaviorSubject<Bool>(value: false)
+    private var rxSongResult = PublishSubject<MusicIDResultType>()
+    private var rxIsActive = BehaviorSubject<Bool>(value: false)
+    private var rxRecordingVolume = BehaviorSubject<Float>(value: 0.0)
     
     init() {
         let config = ACRCloudConfig()
@@ -52,16 +54,25 @@ class MusicIdentifier {
             config.homedir = Bundle.main.resourcePath!.appending("/acrcloud_local_db");
         }
         
-        song = songResult
+        song = rxSongResult
             .asDriver(onErrorJustReturn: Result.Failure(.DriverError))
         
-        isListening = isActive
+        isListening = rxIsActive
             .asDriver(onErrorJustReturn: false)
         
-        _ = isActive
+        volume = rxRecordingVolume
+            .asDriver(onErrorJustReturn: -100.0)
+        
+        _ = rxIsActive
             .filter({ $0 == true })
             .subscribe(onNext: { [weak self] _ in
                 self?.client.startRecordRec()
+            })
+        
+        _ = rxIsActive
+            .filter({ $0 == false })
+            .subscribe(onNext: { [weak self] _ in
+                self?.client.stopRecordRec()
             })
         
         config.stateBlock = { [weak self] state in
@@ -81,20 +92,24 @@ class MusicIdentifier {
     }
     
     func startRecognition() {
-        isActive.onNext(true)
+        rxIsActive.onNext(true)
+    }
+    
+    func stopRecognition() {
+        rxIsActive.onNext(false)
     }
     
     func handleResult(_ result: String, resType: ACRCloudResultType) -> Void {
         defer {
-            self.client.stopRecordRec()
-            self.isActive.onNext(false)
+//            self.client.stopRecordRec()
+            self.rxIsActive.onNext(false)
         }
         
         print(result)
         print(resType.rawValue)
         
         guard resType.rawValue > -1 else {
-            self.songResult.onNext(Result.Failure(.CouldNotFindSong))
+            self.rxSongResult.onNext(Result.Failure(.CouldNotFindSong))
             return
         }
         
@@ -102,13 +117,14 @@ class MusicIdentifier {
             if let data = result.data(using: .utf8) {
                 let decoder = JSONDecoder()
                 let song = try! decoder.decode(SongACR.self, from: data)
-                self.songResult.onNext(Result.Success(song))
+                self.rxSongResult.onNext(Result.Success(song))
                 print("OnNext")
             }
         }
     }
     
     func handleVolume(_ volume: Float) -> Void {
+        rxRecordingVolume.onNext(volume)
         DispatchQueue.main.async {
             //self.volumeLabel.text = String(format: "Volume: %f", volume)
         }

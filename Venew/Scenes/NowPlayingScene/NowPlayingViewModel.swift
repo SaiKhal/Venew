@@ -24,13 +24,12 @@ protocol NowPlayingViewModelOutputs {
     var showMusicID: Observable<Void> { get }
     var playbackState: Driver<String> { get }
     var currentMediaItem: Driver<MPMediaItem> { get }
-    var userLocation: Driver<CLLocation> { get }
-    var authorized: Driver<Bool> { get }
     var areaName: Driver<String> { get }
 }
 
 protocol NowPlayingViewModelServices {
     var mediaPlayer: MPMusicPlayerController { get }
+    var client: VenueAPIClient { get }
 }
 
 protocol NowPlayingViewModelType {
@@ -59,8 +58,8 @@ extension MPMusicPlaybackState {
 }
 
 final class NowPlayingViewModel: NowPlayingViewModelType, NowPlayingViewModelInputs, NowPlayingViewModelOutputs, NowPlayingViewModelServices {
-    var showMusicID: Observable<Void>
     
+    var showMusicID: Observable<Void>
     
     var inputs: NowPlayingViewModelInputs { return self }
     var outputs: NowPlayingViewModelOutputs { return self }
@@ -95,49 +94,63 @@ final class NowPlayingViewModel: NowPlayingViewModelType, NowPlayingViewModelInp
     let authorized: Driver<Bool>
     let areaName: Driver<String>
     
+    var venueInfo: Driver<String>
+    
     // MARK: - Private
-    var rxCurrentMediaItem: BehaviorSubject<MPMediaItem>
+    var rxCurrentMediaItem: BehaviorSubject<MediaPlayer.MediaItem>
     var rxState: BehaviorSubject<String>
     var rxShowMusicID = PublishSubject<Void>()
     
     // MARK: - Services
     var mediaPlayer: MPMusicPlayerController
     var locationService: LocationService
+    var client: VenueAPIClient
 
     init(locationService: LocationService) {
         self.locationService = locationService
+        self.client = VenueAPIClient()
         
         mediaPlayer = MPMusicPlayerController.systemMusicPlayer
         mediaPlayer.beginGeneratingPlaybackNotifications()
         
-        let notificationCenter = NotificationCenter.default
-        
-        rxCurrentMediaItem = BehaviorSubject(value: mediaPlayer.nowPlayingItem ?? MPMediaItem())
         rxState = BehaviorSubject(value: mediaPlayer.playbackState.description)
         
         currentMediaItem = rxCurrentMediaItem
-            .asDriver(onErrorJustReturn: MPMediaItem())
+            .map { $0}
+            .asDriver(onErrorJustReturn: .empty)
         
         playbackState = rxState
             .asDriver(onErrorJustReturn: "Driver Error (playbackState): Could not find playback state")
+        
+        venueInfo = rxCurrentMediaItem
+            .asObservable()
+            .filter({ (musicItem) -> Bool in
+                if case .song = musicItem {
+                    return true
+                } else {
+                    return false
+                }
+            })
+            .map { $0.mediaItem }
+            .map { ArtistEndpoint(artistName: $0.albumArtist!) }
+            .map { $0.request }
+            .debug()
+            .flatMapLatest { request -> Observable<String> in
+                return URLSession.shared.rx.data(request: request)
+                    .map { $0.convertTo(type: ArtistSearchResult.self) }
+                    .errorOnNil()
+                    .map { "\($0.resultsPage.results.artist.first!.id)" }
+            }
+            .asDriver(onErrorJustReturn: "Error fetching venue info")
+            
+            venueInfo
+            .drive(onNext: { json in
+                print(json)
+            })
 
-        userLocation = locationService.userLocation
-        authorized = locationService.authorized
         areaName = locationService.areaName
         showMusicID = rxShowMusicID.asObservable()
         
-        
-//        Observe now playing item
-        notificationCenter.addObserver(self,
-                                       selector: #selector(handleMusicPlayerControllerNowPlayingItemDidChange),
-                                       name: .MPMusicPlayerControllerNowPlayingItemDidChange,
-                                       object: mediaPlayer)
-        
-//        Observe playback state
-        notificationCenter.addObserver(self,
-                                       selector: #selector(handleMusicPlayerControllerPlaybackStateDidChange),
-                                       name: .MPMusicPlayerControllerPlaybackStateDidChange,
-                                       object: mediaPlayer)
     }
     
     

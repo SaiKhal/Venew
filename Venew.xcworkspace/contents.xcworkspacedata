@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:VenueAPIClient.swift">
+   </FileRef>
+   <FileRef
       location = "group:Venew.xcodeproj">
    </FileRef>
    <FileRef

@@ -23,7 +23,7 @@ protocol NowPlayingViewModelInputs {
 protocol NowPlayingViewModelOutputs {
     var showMusicID: Observable<Void> { get }
     var playbackState: Driver<String> { get }
-    var currentMediaItem: Driver<MPMediaItem> { get }
+    var currentMediaItem: Driver<MediaItem> { get }
     var areaName: Driver<String> { get }
 }
 
@@ -89,15 +89,15 @@ final class NowPlayingViewModel: NowPlayingViewModelType, NowPlayingViewModelInp
     
     // MARK: - Outputs
     let playbackState: Driver<String>
-    let currentMediaItem: Driver<MPMediaItem>
-    let userLocation: Driver<CLLocation>
-    let authorized: Driver<Bool>
+    let currentMediaItem: Driver<MediaItem>
+//    let userLocation: Driver<CLLocation>
+//    let authorized: Driver<Bool>
     let areaName: Driver<String>
     
     var venueInfo: Driver<String>
     
     // MARK: - Private
-    var rxCurrentMediaItem: BehaviorSubject<MediaPlayer.MediaItem>
+    var rxCurrentMediaItem: BehaviorSubject<MediaItem>
     var rxState: BehaviorSubject<String>
     var rxShowMusicID = PublishSubject<Void>()
     
@@ -114,9 +114,9 @@ final class NowPlayingViewModel: NowPlayingViewModelType, NowPlayingViewModelInp
         mediaPlayer.beginGeneratingPlaybackNotifications()
         
         rxState = BehaviorSubject(value: mediaPlayer.playbackState.description)
+        rxCurrentMediaItem = BehaviorSubject(value: mediaPlayer.mediaItem())
         
         currentMediaItem = rxCurrentMediaItem
-            .map { $0}
             .asDriver(onErrorJustReturn: .empty)
         
         playbackState = rxState
@@ -131,7 +131,7 @@ final class NowPlayingViewModel: NowPlayingViewModelType, NowPlayingViewModelInp
                     return false
                 }
             })
-            .map { $0.mediaItem }
+            .map { $0.media }
             .map { ArtistEndpoint(artistName: $0.albumArtist!) }
             .map { $0.request }
             .debug()
@@ -151,12 +151,28 @@ final class NowPlayingViewModel: NowPlayingViewModelType, NowPlayingViewModelInp
         areaName = locationService.areaName
         showMusicID = rxShowMusicID.asObservable()
         
+        let notificationCenter = NotificationCenter.default
+        
+        //        Observe now playing item
+        notificationCenter.addObserver(self,
+                                       selector: #selector(handleMusicPlayerControllerNowPlayingItemDidChange),
+                                       name: .MPMusicPlayerControllerNowPlayingItemDidChange,
+                                       object: mediaPlayer)
+        
+        //        Observe playback state
+        notificationCenter.addObserver(self,
+                                       selector: #selector(handleMusicPlayerControllerPlaybackStateDidChange),
+                                       name: .MPMusicPlayerControllerPlaybackStateDidChange,
+                                       object: mediaPlayer)
+        
     }
+    
+    
     
     
     // MARK: Notification Observing Methods
     @objc func handleMusicPlayerControllerNowPlayingItemDidChange() {
-        rxCurrentMediaItem.onNext(mediaPlayer.nowPlayingItem!)
+        rxCurrentMediaItem.onNext(MediaItem.song(mediaPlayer.nowPlayingItem!))
     }
     
     @objc func handleMusicPlayerControllerPlaybackStateDidChange() {

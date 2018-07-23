@@ -34,17 +34,24 @@ class NowPlayingViewController: UIViewController {
 
     private func bindToViewModel() {
         /// Outputs
+        
+//        let media = viewModel.outputs.currentMediaItem
+//            .map { $0.media }
+        
         viewModel.outputs.currentMediaItem
+            .map { $0.media }
             .map({$0.artist})
             .drive(contentView.currentArtistLabel.rx.text)
             .disposed(by: bag)
         
         viewModel.outputs.currentMediaItem
+            .map { $0.media }
             .map({$0.title})
             .drive(contentView.currentSongLabel.rx.text)
             .disposed(by: bag)
         
         viewModel.outputs.currentMediaItem
+            .map { $0.media }
             .map({ $0.artwork?.image(at: self.contentView.imageview.size) })
             .drive(contentView.imageview.rx.image)
             .disposed(by: bag)

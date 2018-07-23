@@ -10,20 +10,32 @@ import Foundation
 import MediaPlayer
 import RxSwift
 
-class MediaPlayer {
-    enum MediaItem {
-        case song(MPMediaItem)
-        case empty
-        
-        var media: MPMediaItem {
-            switch self {
-            case let .song(media):
-                return media
-            default:
-                return MPMediaItem()
-            }
+enum MediaItem {
+    case song(MPMediaItem)
+    case empty
+    
+    var media: MPMediaItem {
+        switch self {
+        case let .song(media):
+            return media
+        default:
+            return MPMediaItem()
         }
     }
+}
+
+extension MPMusicPlayerController {
+    func mediaItem() -> MediaItem {
+        if let song = self.nowPlayingItem {
+            return MediaItem.song(song)
+        } else {
+            return MediaItem.empty
+        }
+    }
+}
+
+class MediaPlayer {
+    
     let player = MPMusicPlayerController.systemMusicPlayer
 
     init() {

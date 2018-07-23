@@ -2,9 +2,9 @@
 
 iOS application that helps find concerts near you.
 
-[![Swift Version][swift-image]][swift-url]
-[![Build Status][travis-image]][travis-url]
-[![License][license-image]][license-url]
+![Swift Version](https://img.shields.io/badge/Swift-4.0-orange.svg)
+![Build Status](    https://img.shields.io/bitbucket/pipelines/atlassian/adf-builder-javascript.svg)
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
 [![Platform](https://img.shields.io/cocoapods/p/LFAlertController.svg?style=flat)](http://cocoapods.org/pods/LFAlertController)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 

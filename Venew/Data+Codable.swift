@@ -14,7 +14,7 @@ extension Data {
             let object = try JSONDecoder().decode(type, from: self)
             return object
         } catch {
-            print(error)
+            print(#function, "Error converting type \(type)\n", error)
             return nil
         }
     }

@@ -69,9 +69,9 @@ final class MusicIDViewModel: MusicIDViewModelType, MusicIDViewModelInputs, Musi
             .song
             .map { result in
                 switch result {
-                case let .Success(song):
+                case let .success(song):
                     return song.metadata.music.first!.title
-                case let .Failure(error):
+                case let .failure(error):
                     return error.description
                 }
             }
@@ -80,9 +80,9 @@ final class MusicIDViewModel: MusicIDViewModelType, MusicIDViewModelInputs, Musi
             .song
             .map { result in
                 switch result {
-                case let .Success(song):
+                case let .success(song):
                     return song.metadata.music.first!.artists.first!.name
-                case let .Failure(error):
+                case let .failure(error):
                     return error.description
                 }
         }

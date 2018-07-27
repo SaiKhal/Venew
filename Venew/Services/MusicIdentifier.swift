@@ -55,7 +55,7 @@ class MusicIdentifier {
         }
         
         song = rxSongResult
-            .asDriver(onErrorJustReturn: Result.Failure(.DriverError))
+            .asDriver(onErrorJustReturn: Result.failure(.DriverError))
         
         isListening = rxIsActive
             .asDriver(onErrorJustReturn: false)
@@ -109,7 +109,7 @@ class MusicIdentifier {
         print(resType.rawValue)
         
         guard resType.rawValue > -1 else {
-            self.rxSongResult.onNext(Result.Failure(.CouldNotFindSong))
+            self.rxSongResult.onNext(Result.failure(.CouldNotFindSong))
             return
         }
         
@@ -117,7 +117,7 @@ class MusicIdentifier {
             if let data = result.data(using: .utf8) {
                 let decoder = JSONDecoder()
                 let song = try! decoder.decode(SongACR.self, from: data)
-                self.rxSongResult.onNext(Result.Success(song))
+                self.rxSongResult.onNext(Result.success(song))
                 print("OnNext")
             }
         }

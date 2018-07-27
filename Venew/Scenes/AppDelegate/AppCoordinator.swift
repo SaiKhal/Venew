@@ -18,6 +18,8 @@ final class AppCoordinator: Coordinator {
     // MARK: - Services
     let locationService = LocationService()
     let musicIDService = MusicIdentifier()
+    let venueAPI: VenueAPIClient = VenueAPIClient()
+    let mediaPlayer: MediaController = MediaPlayer()
     
     init(window: UIWindow) {
         let navController = UINavigationController()
@@ -33,7 +35,11 @@ final class AppCoordinator: Coordinator {
     }
     
     private func showNowPlaying()  {
-        let nowPlayingCoordinator = NowPlayingCoordinator(rootNav: navigationController, locationService: locationService, musicIDService: musicIDService)
+        let nowPlayingCoordinator = NowPlayingCoordinator(rootNav: navigationController,
+                                                          locationService: locationService,
+                                                          musicIDService: musicIDService,
+                                                          venueAPIService: venueAPI,
+                                                          mediaPlayer: mediaPlayer)
         addChildCoordinator(nowPlayingCoordinator)
         nowPlayingCoordinator.start()
     }

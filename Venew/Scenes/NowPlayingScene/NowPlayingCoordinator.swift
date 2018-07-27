@@ -16,16 +16,23 @@ final class NowPlayingCoordinator: Coordinator {
     
     let locationService: LocationService
     let musicIDService: MusicIdentifier
+    let venueAPI: VenueAPIClient
+    let mediaPlayer: MediaController
     let bag = DisposeBag()
     
-    init(rootNav navigationController: UINavigationController, locationService: LocationService, musicIDService: MusicIdentifier) {
+    init(rootNav navigationController: UINavigationController, locationService: LocationService,
+         musicIDService: MusicIdentifier,
+         venueAPIService: VenueAPIClient,
+         mediaPlayer: MediaController) {
         self.navigationController = navigationController
         self.locationService = locationService
         self.musicIDService = musicIDService
+        self.mediaPlayer = mediaPlayer
+        self.venueAPI = venueAPIService
     }
     
     func start() {
-        let viewModel = NowPlayingViewModel(locationService: locationService)
+        let viewModel = NowPlayingViewModel(location: locationService, media: mediaPlayer, api: venueAPI)
         let nowPlayingViewController = NowPlayingViewController(with: viewModel)
         navigationController.pushViewController(nowPlayingViewController, animated: true)
         

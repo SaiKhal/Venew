@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		4B45301BC704EFDA6BE9EBC8 /* Pods_Venew.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5704C1AF74A3F4A79ADCDBB5 /* Pods_Venew.framework */; };
 		C40C1D6E20EC460B001CF58F /* libACRCloud_IOS_SDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4286B3120EC38AC00B3A003 /* libACRCloud_IOS_SDK.a */; };
+		C41C78EE2107EF930065CC15 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41C78ED2107EF930065CC15 /* Events.swift */; };
 		C4286B3D20EC394300B3A003 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4286B3C20EC394300B3A003 /* Security.framework */; };
 		C4286B3F20EC395A00B3A003 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C4286B3E20EC395A00B3A003 /* libc++.tbd */; };
 		C4286B4120EC396600B3A003 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4286B4020EC396600B3A003 /* AVFoundation.framework */; };
 		C4286B4320EC397400B3A003 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4286B4220EC397300B3A003 /* AudioToolbox.framework */; };
-		C4286B4520EC3A7800B3A003 /* MusicRecViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4286B4420EC3A7800B3A003 /* MusicRecViewController.swift */; };
 		C42CE0DD20EA7FFD008C75DD /* NowPlayingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42CE0DC20EA7FFD008C75DD /* NowPlayingView.swift */; };
 		C42CE0E220EAF0DD008C75DD /* NowPlayingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FE4CEB20E9F73200390B4C /* NowPlayingCoordinator.swift */; };
 		C42CE0E320EAF0EF008C75DD /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FE4CED20E9F8A900390B4C /* NowPlayingViewController.swift */; };
@@ -22,10 +22,9 @@
 		C42CE0E720EAF6D4008C75DD /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42CE0E620EAF6D4008C75DD /* LocationService.swift */; };
 		C42CE0E920EAF810008C75DD /* CLLocationManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42CE0E820EAF810008C75DD /* CLLocationManager+Rx.swift */; };
 		C42CE0EB20EAFCD3008C75DD /* RxCLLocationManagerDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42CE0EA20EAFCD3008C75DD /* RxCLLocationManagerDelegateProxy.swift */; };
-		C42CE0EC20EB0F0D008C75DD /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42CE0E620EAF6D4008C75DD /* LocationService.swift */; };
 		C44CD6C4210133CE007B3A1A /* ArtistSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44CD6C3210133CE007B3A1A /* ArtistSearchResult.swift */; };
 		C44CD6C621013664007B3A1A /* Data+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44CD6C521013664007B3A1A /* Data+Codable.swift */; };
-		C44CD6C92101707C007B3A1A /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44CD6C82101707C007B3A1A /* MusicPlayer.swift */; };
+		C44CD6C92101707C007B3A1A /* MediaPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44CD6C82101707C007B3A1A /* MediaPlayer.swift */; };
 		C457C6B320EC56D700855333 /* SongACR.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457C6B220EC56D600855333 /* SongACR.swift */; };
 		C4A353C820ED864300AA5F38 /* MusicIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457C6AE20EC4DCC00855333 /* MusicIdentifier.swift */; };
 		C4A353CB20EDB79D00AA5F38 /* MusicIDCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A353CA20EDB79D00AA5F38 /* MusicIDCoordinator.swift */; };
@@ -33,7 +32,8 @@
 		C4A353CF20EDBEBE00AA5F38 /* MusicIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A353CE20EDBEBE00AA5F38 /* MusicIDViewController.swift */; };
 		C4A353D120EDCAB200AA5F38 /* MusicIDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A353D020EDCAB200AA5F38 /* MusicIDView.swift */; };
 		C4A353D320EDDA6200AA5F38 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A353D220EDDA6200AA5F38 /* Result.swift */; };
-		C4FAEFA02100D550007CE430 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FAEF9F2100D550007CE430 /* APIClient.swift */; };
+		C4B0B415210670C9004EF1DF /* VenueAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B0B414210670C9004EF1DF /* VenueAPIClient.swift */; };
+		C4B0B41721067112004EF1DF /* MPMusic+ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B0B41621067112004EF1DF /* MPMusic+ex.swift */; };
 		C4FAEFA221012534007CE430 /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FAEFA121012534007CE430 /* APIEndpoint.swift */; };
 		C4FE4CB820E9EDA900390B4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FE4CB720E9EDA900390B4C /* AppDelegate.swift */; };
 		C4FE4CBF20E9EDAA00390B4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4FE4CBE20E9EDAA00390B4C /* Assets.xcassets */; };
@@ -68,12 +68,12 @@
 		5704C1AF74A3F4A79ADCDBB5 /* Pods_Venew.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Venew.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DFE4C19267A8733D1998F20 /* Pods-VenewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VenewTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VenewTests/Pods-VenewTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B5DD81047E0AE7568FDD6666 /* Pods-VenewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VenewTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VenewTests/Pods-VenewTests.release.xcconfig"; sourceTree = "<group>"; };
+		C41C78ED2107EF930065CC15 /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		C4286B3120EC38AC00B3A003 /* libACRCloud_IOS_SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libACRCloud_IOS_SDK.a; sourceTree = "<group>"; };
 		C4286B3C20EC394300B3A003 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		C4286B3E20EC395A00B3A003 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		C4286B4020EC396600B3A003 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C4286B4220EC397300B3A003 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		C4286B4420EC3A7800B3A003 /* MusicRecViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRecViewController.swift; sourceTree = "<group>"; };
 		C4286B4720EC3B2F00B3A003 /* ACRCloudDemo_Swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ACRCloudDemo_Swift-Bridging-Header.h"; sourceTree = "<group>"; };
 		C42CE0DC20EA7FFD008C75DD /* NowPlayingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingView.swift; sourceTree = "<group>"; };
 		C42CE0E620EAF6D4008C75DD /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 		C440538020EC3F9C00BC6872 /* ACRCloudConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACRCloudConfig.h; sourceTree = "<group>"; };
 		C44CD6C3210133CE007B3A1A /* ArtistSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistSearchResult.swift; sourceTree = "<group>"; };
 		C44CD6C521013664007B3A1A /* Data+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Codable.swift"; sourceTree = "<group>"; };
-		C44CD6C82101707C007B3A1A /* MusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
+		C44CD6C82101707C007B3A1A /* MediaPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayer.swift; sourceTree = "<group>"; };
 		C457C6AE20EC4DCC00855333 /* MusicIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicIdentifier.swift; sourceTree = "<group>"; };
 		C457C6B220EC56D600855333 /* SongACR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongACR.swift; sourceTree = "<group>"; };
 		C4A353CA20EDB79D00AA5F38 /* MusicIDCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicIDCoordinator.swift; sourceTree = "<group>"; };
@@ -91,7 +91,8 @@
 		C4A353CE20EDBEBE00AA5F38 /* MusicIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicIDViewController.swift; sourceTree = "<group>"; };
 		C4A353D020EDCAB200AA5F38 /* MusicIDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicIDView.swift; sourceTree = "<group>"; };
 		C4A353D220EDDA6200AA5F38 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
-		C4FAEF9F2100D550007CE430 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		C4B0B414210670C9004EF1DF /* VenueAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VenueAPIClient.swift; path = /Users/Masai/Code/Venew/Venew/Services/VenueAPIClient.swift; sourceTree = "<absolute>"; };
+		C4B0B41621067112004EF1DF /* MPMusic+ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MPMusic+ex.swift"; sourceTree = "<group>"; };
 		C4FAEFA121012534007CE430 /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
 		C4FE4CB420E9EDA900390B4C /* Venew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Venew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4FE4CB720E9EDA900390B4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -141,9 +142,6 @@
 		C40826F520EEED43006F64CB /* MusicIDScene */ = {
 			isa = PBXGroup;
 			children = (
-				C457C6AE20EC4DCC00855333 /* MusicIdentifier.swift */,
-				C4FAEF9F2100D550007CE430 /* APIClient.swift */,
-				C4FAEFA121012534007CE430 /* APIEndpoint.swift */,
 				C4A353CA20EDB79D00AA5F38 /* MusicIDCoordinator.swift */,
 				C4A353CC20EDB83F00AA5F38 /* MusicIDViewModel.swift */,
 				C4A353CE20EDBEBE00AA5F38 /* MusicIDViewController.swift */,
@@ -157,7 +155,6 @@
 			children = (
 				C4FE4CB720E9EDA900390B4C /* AppDelegate.swift */,
 				C4FE4CE820E9F38900390B4C /* AppCoordinator.swift */,
-				C42CE0E620EAF6D4008C75DD /* LocationService.swift */,
 				C42CE0EA20EAFCD3008C75DD /* RxCLLocationManagerDelegateProxy.swift */,
 				C42CE0E820EAF810008C75DD /* CLLocationManager+Rx.swift */,
 			);
@@ -194,13 +191,14 @@
 			path = Scenes;
 			sourceTree = "<group>";
 		};
-		C44CD6C721013B3A007B3A1A /* Model */ = {
+		C44CD6C721013B3A007B3A1A /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				C457C6B220EC56D600855333 /* SongACR.swift */,
 				C44CD6C3210133CE007B3A1A /* ArtistSearchResult.swift */,
+				C41C78ED2107EF930065CC15 /* Events.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		C457C6B020EC55BA00855333 /* MusicIdentification */ = {
@@ -218,6 +216,35 @@
 				C440537F20EC3F9C00BC6872 /* ACRCloudRecognition.h */,
 			);
 			path = ACRDependencies;
+			sourceTree = "<group>";
+		};
+		C4B0B413210670BA004EF1DF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C457C6B020EC55BA00855333 /* MusicIdentification */,
+				C42CE0E620EAF6D4008C75DD /* LocationService.swift */,
+				C457C6AE20EC4DCC00855333 /* MusicIdentifier.swift */,
+				C44CD6C82101707C007B3A1A /* MediaPlayer.swift */,
+				C4B0B418210676AC004EF1DF /* VenueAPI */,
+				C4B0B41621067112004EF1DF /* MPMusic+ex.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C4B0B418210676AC004EF1DF /* VenueAPI */ = {
+			isa = PBXGroup;
+			children = (
+				C4B0B414210670C9004EF1DF /* VenueAPIClient.swift */,
+				C4FAEFA121012534007CE430 /* APIEndpoint.swift */,
+			);
+			path = VenueAPI;
+			sourceTree = "<group>";
+		};
+		C4B0B41921067807004EF1DF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 		C4FE4CAB20E9EDA900390B4C = {
@@ -245,15 +272,14 @@
 			isa = PBXGroup;
 			children = (
 				C4286B3120EC38AC00B3A003 /* libACRCloud_IOS_SDK.a */,
-				C457C6B020EC55BA00855333 /* MusicIdentification */,
+				C4B0B41921067807004EF1DF /* Frameworks */,
+				C44CD6C721013B3A007B3A1A /* Models */,
 				C42CE0E020EAEF86008C75DD /* Coordinator */,
 				C44CD6C221013334007B3A1A /* Scenes */,
-				C44CD6C721013B3A007B3A1A /* Model */,
+				C4B0B413210670BA004EF1DF /* Services */,
 				C4FE4CBE20E9EDAA00390B4C /* Assets.xcassets */,
 				C4FE4CC020E9EDAA00390B4C /* LaunchScreen.storyboard */,
 				C4FE4CC320E9EDAA00390B4C /* Info.plist */,
-				C44CD6C82101707C007B3A1A /* MusicPlayer.swift */,
-				C4286B4420EC3A7800B3A003 /* MusicRecViewController.swift */,
 				C4A353D220EDDA6200AA5F38 /* Result.swift */,
 				C44CD6C521013664007B3A1A /* Data+Codable.swift */,
 			);
@@ -488,12 +514,11 @@
 			files = (
 				C4A353CF20EDBEBE00AA5F38 /* MusicIDViewController.swift in Sources */,
 				C4A353C820ED864300AA5F38 /* MusicIdentifier.swift in Sources */,
-				C44CD6C92101707C007B3A1A /* MusicPlayer.swift in Sources */,
+				C44CD6C92101707C007B3A1A /* MediaPlayer.swift in Sources */,
 				C4A353D320EDDA6200AA5F38 /* Result.swift in Sources */,
-				C4FAEFA02100D550007CE430 /* APIClient.swift in Sources */,
+				C41C78EE2107EF930065CC15 /* Events.swift in Sources */,
 				C457C6B320EC56D700855333 /* SongACR.swift in Sources */,
 				C42CE0DD20EA7FFD008C75DD /* NowPlayingView.swift in Sources */,
-				C4286B4520EC3A7800B3A003 /* MusicRecViewController.swift in Sources */,
 				C44CD6C4210133CE007B3A1A /* ArtistSearchResult.swift in Sources */,
 				C4FAEFA221012534007CE430 /* APIEndpoint.swift in Sources */,
 				C4FE4CEC20E9F73200390B4C /* NowPlayingCoordinator.swift in Sources */,
@@ -504,12 +529,14 @@
 				C4A353D120EDCAB200AA5F38 /* MusicIDView.swift in Sources */,
 				C4A353CB20EDB79D00AA5F38 /* MusicIDCoordinator.swift in Sources */,
 				C42CE0E920EAF810008C75DD /* CLLocationManager+Rx.swift in Sources */,
+				C4B0B415210670C9004EF1DF /* VenueAPIClient.swift in Sources */,
 				C42CE0EB20EAFCD3008C75DD /* RxCLLocationManagerDelegateProxy.swift in Sources */,
 				C4A353CD20EDB83F00AA5F38 /* MusicIDViewModel.swift in Sources */,
 				C4FE4CEA20E9F39000390B4C /* AppCoordinator.swift in Sources */,
 				C4FE4CE520E9F26900390B4C /* Coordinator.swift in Sources */,
 				C42CE0E720EAF6D4008C75DD /* LocationService.swift in Sources */,
 				C4FE4CE320E9F26900390B4C /* MockCoordinator.swift in Sources */,
+				C4B0B41721067112004EF1DF /* MPMusic+ex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,7 +550,6 @@
 				C4FE4CCD20E9EDAA00390B4C /* VenewTests.swift in Sources */,
 				C42CE0E520EAF119008C75DD /* NowPlayingView.swift in Sources */,
 				C4FE4CDB20E9EFA900390B4C /* AppCoordinatorSpec.swift in Sources */,
-				C42CE0EC20EB0F0D008C75DD /* LocationService.swift in Sources */,
 				C42CE0E420EAF110008C75DD /* NowPlayingViewModel.swift in Sources */,
 				C4FE4CE720E9F2F700390B4C /* MockCoordinator.swift in Sources */,
 				C42CE0E220EAF0DD008C75DD /* NowPlayingCoordinator.swift in Sources */,

@@ -16,16 +16,16 @@ struct ArtistSearchResult: Codable {
     
     let resultsPage: ArtistResultsPage
     
-    func artistIdOrError() throws -> String {
+    func artistIdOrError() -> Result<String, DecodingError> {
         guard let artist = resultsPage.results.artist, !artist.isEmpty else {
-            throw DecodingError.noArtist
+            return .failure(DecodingError.noArtist)
         }
         
         guard let identifiers = artist.first?.identifier, !identifiers.isEmpty else {
-            throw DecodingError.noIdentifiers
+            return .failure(DecodingError.noIdentifiers)
         }
         
-        return identifiers.first!.mbid
+        return .success(identifiers.first!.mbid)
     }
 }
 

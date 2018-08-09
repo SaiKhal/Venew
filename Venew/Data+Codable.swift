@@ -8,14 +8,18 @@
 
 import Foundation
 
+enum NetworkingError: Error {
+    case jsonDecoderError
+}
+
 extension Data {
-    func convertTo<T: Codable>(type: T.Type) -> T? {
+    func convertTo<T: Codable>(type: T.Type) -> Result<T,NetworkingError> {
         do {
             let object = try JSONDecoder().decode(type, from: self)
-            return object
+            return .success(object)
         } catch {
             print(#function, "Error converting type \(type)\n", error)
-            return nil
+            return .failure(.jsonDecoderError)
         }
     }
 }

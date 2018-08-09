@@ -12,6 +12,16 @@ enum Result<T, Error: Swift.Error> {
     case success(T)
     case failure(Error)
     
+    var value: T? {
+        guard case let .success(val) = self else { return nil }
+        return val
+    }
+    
+    var error: Error? {
+        guard case let .failure(error) = self else { return nil }
+        return error
+    }
+    
     func map<U>(_ transform: (T) -> (U)) -> Result<U,Error> {
         return flatMap { (value) -> Result<U, Error> in
             return .success(transform(value))

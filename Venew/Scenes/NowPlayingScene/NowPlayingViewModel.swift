@@ -72,8 +72,8 @@ final class NowPlayingViewModel: NowPlayingViewModelType, NowPlayingViewModelInp
     let currentMediaItem: Driver<MediaItem>
     let areaName: Driver<String>
     var venueInfo: Driver<String>
-//    let userLocation: Driver<CLLocation>
-//    let authorized: Driver<Bool>
+    //    let userLocation: Driver<CLLocation>
+    //    let authorized: Driver<Bool>
     
     // MARK: - Services
     var mediaPlayer: MediaController
@@ -88,57 +88,89 @@ final class NowPlayingViewModel: NowPlayingViewModelType, NowPlayingViewModelInp
         areaName = locationService.areaName
         showMusicID = rxShowMusicID.asObservable()
         
-        currentMediaItem = mediaPlayer.currentMediaItem
-            .asDriver(onErrorJustReturn: .empty)
         
         playbackState = mediaPlayer.playbackState
             .asDriver(onErrorJustReturn: "Driver Error (playbackState): Could not find playback state")
         
+        currentMediaItem = mediaPlayer.currentMediaItem
+            .asDriver(onErrorJustReturn: .empty)
         
-        venueInfo = currentMediaItem.asObservable()
+        
+        let mediaArtist = currentMediaItem.asObservable()
             .filter { $0.isSong }
             .map { song in song.media.artist! }
+        
+        let artistID = mediaArtist
             .distinctUntilChanged()
-            .map { ArtistEndpoint(artistName: $0) }
-            .map { $0.request }
-            //.debug()
+            .map { ArtistEndpoint(artistName: $0).request }
             .flatMapLatest { request -> Observable<String> in
                 // TODO: Refactor
                 return URLSession.shared.rx.data(request: request)
                     .map { $0.convertTo(type: ArtistSearchResult.self) }
+                    .map { $0.value }
                     .errorOnNil()
-                    .map { try $0.artistIdOrError() }
+                    .map { $0.artistIdOrError() }
+                    .map { $0.value! }
             }
-            .map {  VenueEndpoint(artistID: $0).request }
-            //.debug()
+            .debug()
+        
+        venueInfo = artistID
+            .map { VenueEndpoint(artistID: $0).request }
             .flatMapLatest { request in
                 return URLSession.shared.rx.data(request: request)
-                    .map { $0.convertTo(type: EventSearchResult.self) }
+                    .map { $0.convertTo(type: EventSearchResult.self).value }
                     .errorOnNil()
-                    .map { $0.resultsPage.results.event?.count.description ?? "0" } //String(data: $0, encoding: .utf8) ?? "NADA" }
-            }
-            .asDriver(onErrorRecover: { error in
-                let errorMessage:String
-                
-                switch error {
-                case ArtistSearchResult.DecodingError.noArtist:
-                    errorMessage = "Error fetching venue artist: AristSearchResult"
-                case ArtistSearchResult.DecodingError.noIdentifiers:
-                    errorMessage = "Error fetching venue identifiers: AristSearchResult"
-                default:
-                    errorMessage = "Not an ArtistSearchResult error"
-                }
-                
-                return Driver<String>.just(errorMessage)
-            })
-            //.asDriver(onErrorJustReturn: "Error fetching venue info")
-            
+                    .map { $0.resultsPage.results.event?.count.description ?? "0" } }
+            .asDriver(onErrorJustReturn: "Error fetching venue info")
+        
+//        venueInfo = currentMediaItem.asObservable()
+//            .filter { $0.isSong }
+//            .map { _ in "" }
+//            .asDriver(onErrorJustReturn: "Error fetching venue info")
+        //            .map { song in song.media.artist! }
+        //            .distinctUntilChanged()
+        //            .map { ArtistEndpoint(artistName: $0) }
+        //            .map { $0.request }
+        //            //.debug()
+        //            .flatMapLatest { request -> Observable<String> in
+        //                // TODO: Refactor
+        //                return URLSession.shared.rx.data(request: request)
+        //                    .map { $0.convertTo(type: ArtistSearchResult.self) }
+        //                    .map { $0.value }
+        //                    .errorOnNil()
+        //                    .map { $0.artistIdOrError() }
+        //                    .map { $0.value! }
+        //            }
+        //            .map {  VenueEndpoint(artistID: $0).request }
+        //            //.debug()
+        //            .flatMapLatest { request in
+        //                return URLSession.shared.rx.data(request: request)
+        //                    .map { $0.convertTo(type: EventSearchResult.self) }
+        //                    .errorOnNil()
+        //                    .map { $0.resultsPage.results.event?.count.description ?? "0" } //String(data: $0, encoding: .utf8) ?? "NADA" }
+        //            }
+        //            .asDriver(onErrorRecover: { error in
+        //                let errorMessage:String
+        //
+        //                switch error {
+        //                case ArtistSearchResult.DecodingError.noArtist:
+        //                    errorMessage = "Error fetching venue artist: AristSearchResult"
+        //                case ArtistSearchResult.DecodingError.noIdentifiers:
+        //                    errorMessage = "Error fetching venue identifiers: AristSearchResult"
+        //                default:
+        //                    errorMessage = "Not an ArtistSearchResult error"
+        //                }
+        //
+        //                return Driver<String>.just(errorMessage)
+        //            })
+        //.asDriver(onErrorJustReturn: "Error fetching venue info")
+        
         venueInfo
             .drive(onNext: { json in
                 print()
                 print("Venue count: \(json)")
             })
-
+        
         
     }
 }

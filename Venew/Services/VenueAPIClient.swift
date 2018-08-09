@@ -14,7 +14,6 @@ final class VenueAPIClient {
 //    func getArtistID(request: URLRequest) -> Observable<ArtistID> {
 //        return URLSession.shared.rx.data(request: request)
 //            .map { $0.convertTo(type: ArtistSearchResult.self) }
-//            .errorOnNil()
 //            .map { ArtistID(id: $0.artistIdOrError()) }
 //    }
 

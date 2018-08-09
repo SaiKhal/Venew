@@ -16,8 +16,25 @@ protocol APIEndpoint {
     var request: URLRequest { get }
 }
 
+extension APIEndpoint {
+    var request: URLRequest {
+        guard var components = URLComponents(url: baseURL.appendingPathComponent(path), resolvingAgainstBaseURL: false) else {
+            fatalError("base url is wrong")
+        }
+        
+        components.queryItems = parameters.map {
+            URLQueryItem(name: $0, value: $1)
+        }
+        
+        guard let url = components.url else {
+            fatalError("Could not create url")
+        }
+        
+        return URLRequest(url: url)
+    }
+}
+
 struct ArtistEndpoint: APIEndpoint {
-    
     var artistName: String
     init(artistName: String) {
         self.artistName = artistName
@@ -31,27 +48,10 @@ struct ArtistEndpoint: APIEndpoint {
                 "query": artistName]
     }
     
-    var request: URLRequest {
-        guard var components = URLComponents(url: baseURL.appendingPathComponent(path), resolvingAgainstBaseURL: false) else {
-            fatalError("Artist base url is wrong")
-        }
-        
-        components.queryItems = parameters.map {
-            URLQueryItem(name: $0, value: $1)
-        }
-        
-        guard let url = components.url else {
-            fatalError("Could not create artist url")
-        }
-        
-        return URLRequest(url: url)
-    }
-    
 }
 
 struct VenueEndpoint: APIEndpoint {
     // https://api.songkick.com/api/3.0/artists/mbid:9b64b01a-42d0-4137-bbe1-85e4cf60d468/calendar.json?apikey=pywHRmWTw8mGlA74
-    
     var artistID: String
     init(artistID: String) {
         self.artistID = artistID
@@ -63,22 +63,6 @@ struct VenueEndpoint: APIEndpoint {
     
     var parameters: [String : String] {
         return ["apikey": apiKey]
-    }
-    
-    var request: URLRequest {
-        guard var components = URLComponents(url: baseURL.appendingPathComponent(path), resolvingAgainstBaseURL: false) else {
-            fatalError("Venue base url is wrong")
-        }
-        
-        components.queryItems = parameters.map {
-            URLQueryItem(name: $0, value: $1)
-        }
-        
-        guard let url = components.url else {
-            fatalError("Could not create venue url")
-        }
-        
-        return URLRequest(url: url)
     }
     
 }

@@ -63,11 +63,6 @@ class MusicIDViewController: UIViewController {
         bindToViewModel()
     }
     
-    deinit {
-        viewModel.viewDidDisappear()
-        print("LEAVING")
-    }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -79,6 +74,10 @@ class MusicIDViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         viewModel.viewDidAppear()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        viewModel.viewDidDisappear()
     }
     
     func updateWaveform(change: CGFloat) {

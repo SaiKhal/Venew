@@ -32,6 +32,12 @@ class NowPlayingView: UIView {
         return label
     }()
     
+    lazy var venueInfoButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .blue
+        return button
+    }()
+    
     lazy var playButton: UIButton = {
         let button = UIButton()
         button.setTitle("Play", for: .normal)
@@ -54,6 +60,9 @@ class NowPlayingView: UIView {
         let button = UIButton()
         button.setTitle("Record", for: .normal)
         button.backgroundColor = .blue
+        button.layer.cornerRadius = 10
+        button.clipsToBounds = true
+        button.contentEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10)
         return button
     }()
     
@@ -81,6 +90,7 @@ class NowPlayingView: UIView {
         setupLocalityLabel()
         setupRecordButton()
         setupRecordingIndicator()
+        setupVenueInfoButton()
     }
     
     private func setupImageView() {
@@ -119,6 +129,14 @@ class NowPlayingView: UIView {
         }
     }
     
+    private func setupVenueInfoButton() {
+        self.addSubview(venueInfoButton)
+        venueInfoButton.snp.makeConstraints { make in
+            make.top.equalTo(playButton.snp.bottom).offset(20)
+            make.centerX.equalTo(self.snp.centerX)
+        }
+    }
+    
     private func setupLocalityLabel() {
         self.addSubview(locailityLabel)
         locailityLabel.snp.makeConstraints { make in
@@ -131,7 +149,7 @@ class NowPlayingView: UIView {
         self.addSubview(recordButton)
         recordButton.snp.makeConstraints { make in
             make.left.equalTo(self.snp.left).offset(20)
-            make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(20)
+            make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(-20)
         }
     }
     

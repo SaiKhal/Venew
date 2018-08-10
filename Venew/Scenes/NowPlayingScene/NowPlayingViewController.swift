@@ -60,6 +60,10 @@ class NowPlayingViewController: UIViewController {
             .drive(contentView.locailityLabel.rx.text)
             .disposed(by: bag)
         
+        viewModel.outputs.venueInfo
+            .drive(contentView.venueInfoButton.rx.title())
+            .disposed(by: bag)
+        
         viewModel.outputs.playbackState
             .map { state -> String in
                 if state == "playing" {

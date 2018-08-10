@@ -13,7 +13,7 @@ enum NetworkingError: Error {
 }
 
 extension Data {
-    func convertTo<T: Codable>(type: T.Type) -> Result<T,NetworkingError> {
+    func convertToObject<T: Codable>(type: T.Type) -> Result<T,NetworkingError> {
         do {
             let object = try JSONDecoder().decode(type, from: self)
             return .success(object)

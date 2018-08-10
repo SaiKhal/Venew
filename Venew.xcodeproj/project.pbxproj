@@ -32,6 +32,7 @@
 		C4A353CF20EDBEBE00AA5F38 /* MusicIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A353CE20EDBEBE00AA5F38 /* MusicIDViewController.swift */; };
 		C4A353D120EDCAB200AA5F38 /* MusicIDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A353D020EDCAB200AA5F38 /* MusicIDView.swift */; };
 		C4A353D320EDDA6200AA5F38 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A353D220EDDA6200AA5F38 /* Result.swift */; };
+		C4AE36D3211D3B51006B399C /* MediaPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44CD6C82101707C007B3A1A /* MediaPlayer.swift */; };
 		C4B0B415210670C9004EF1DF /* VenueAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B0B414210670C9004EF1DF /* VenueAPIClient.swift */; };
 		C4B0B41721067112004EF1DF /* MPMusic+ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B0B41621067112004EF1DF /* MPMusic+ex.swift */; };
 		C4FAEFA221012534007CE430 /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FAEFA121012534007CE430 /* APIEndpoint.swift */; };
@@ -139,17 +140,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C40826F520EEED43006F64CB /* MusicIDScene */ = {
-			isa = PBXGroup;
-			children = (
-				C4A353CA20EDB79D00AA5F38 /* MusicIDCoordinator.swift */,
-				C4A353CC20EDB83F00AA5F38 /* MusicIDViewModel.swift */,
-				C4A353CE20EDBEBE00AA5F38 /* MusicIDViewController.swift */,
-				C4A353D020EDCAB200AA5F38 /* MusicIDView.swift */,
-			);
-			path = MusicIDScene;
-			sourceTree = "<group>";
-		};
 		C42CE0DF20EAEF6D008C75DD /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,43 +160,14 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		C42CE0E120EAEF95008C75DD /* NowPlayingScene */ = {
+		C42CE0E120EAEF95008C75DD /* NowPlaying */ = {
 			isa = PBXGroup;
 			children = (
-				C4FE4CEB20E9F73200390B4C /* NowPlayingCoordinator.swift */,
-				C42CE0DC20EA7FFD008C75DD /* NowPlayingView.swift */,
-				C4FE4CEF20E9F91800390B4C /* NowPlayingViewModel.swift */,
-				C4FE4CED20E9F8A900390B4C /* NowPlayingViewController.swift */,
+				C4AE36CF211D3A7B006B399C /* Logic */,
+				C4AE36CE211D3A72006B399C /* Views */,
+				C4AE36D0211D3A80006B399C /* ViewControllers */,
 			);
-			path = NowPlayingScene;
-			sourceTree = "<group>";
-		};
-		C44CD6C221013334007B3A1A /* Scenes */ = {
-			isa = PBXGroup;
-			children = (
-				C42CE0DF20EAEF6D008C75DD /* AppDelegate */,
-				C42CE0E120EAEF95008C75DD /* NowPlayingScene */,
-				C40826F520EEED43006F64CB /* MusicIDScene */,
-			);
-			path = Scenes;
-			sourceTree = "<group>";
-		};
-		C44CD6C721013B3A007B3A1A /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				C457C6B220EC56D600855333 /* SongACR.swift */,
-				C44CD6C3210133CE007B3A1A /* ArtistSearchResult.swift */,
-				C41C78ED2107EF930065CC15 /* Events.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		C457C6B020EC55BA00855333 /* MusicIdentification */ = {
-			isa = PBXGroup;
-			children = (
-				C457C6B120EC55CC00855333 /* ACRDependencies */,
-			);
-			path = MusicIdentification;
+			path = NowPlaying;
 			sourceTree = "<group>";
 		};
 		C457C6B120EC55CC00855333 /* ACRDependencies */ = {
@@ -218,13 +179,127 @@
 			path = ACRDependencies;
 			sourceTree = "<group>";
 		};
+		C4AE36C9211D3959006B399C /* Identification */ = {
+			isa = PBXGroup;
+			children = (
+				C4AE36CD211D39F3006B399C /* ViewControllers */,
+				C4AE36CC211D39C2006B399C /* Logic */,
+				C4AE36CB211D39C0006B399C /* Views */,
+				C4AE36CA211D3998006B399C /* Models */,
+			);
+			path = Identification;
+			sourceTree = "<group>";
+		};
+		C4AE36CA211D3998006B399C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C457C6B220EC56D600855333 /* SongACR.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C4AE36CB211D39C0006B399C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C4A353D020EDCAB200AA5F38 /* MusicIDView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C4AE36CC211D39C2006B399C /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				C457C6B120EC55CC00855333 /* ACRDependencies */,
+				C4A353CA20EDB79D00AA5F38 /* MusicIDCoordinator.swift */,
+				C4A353CC20EDB83F00AA5F38 /* MusicIDViewModel.swift */,
+				C457C6AE20EC4DCC00855333 /* MusicIdentifier.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		C4AE36CD211D39F3006B399C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C4A353CE20EDBEBE00AA5F38 /* MusicIDViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C4AE36CE211D3A72006B399C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C42CE0DC20EA7FFD008C75DD /* NowPlayingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C4AE36CF211D3A7B006B399C /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				C4FE4CEB20E9F73200390B4C /* NowPlayingCoordinator.swift */,
+				C4FE4CEF20E9F91800390B4C /* NowPlayingViewModel.swift */,
+				C44CD6C82101707C007B3A1A /* MediaPlayer.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		C4AE36D0211D3A80006B399C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C4FE4CED20E9F8A900390B4C /* NowPlayingViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C4AE36D1211D3AA2006B399C /* VenueSearch */ = {
+			isa = PBXGroup;
+			children = (
+				C44CD6C3210133CE007B3A1A /* ArtistSearchResult.swift */,
+				C41C78ED2107EF930065CC15 /* Events.swift */,
+			);
+			path = VenueSearch;
+			sourceTree = "<group>";
+		};
+		C4AE36D2211D3AC4006B399C /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				C4AE36C9211D3959006B399C /* Identification */,
+				C42CE0E120EAEF95008C75DD /* NowPlaying */,
+				C4AE36D4211D3B88006B399C /* Location */,
+				C4AE36D1211D3AA2006B399C /* VenueSearch */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		C4AE36D4211D3B88006B399C /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				C42CE0E620EAF6D4008C75DD /* LocationService.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		C4AE36D5211D3C0D006B399C /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				C4AE36D6211D3C2C006B399C /* Extensions */,
+				C4A353D220EDDA6200AA5F38 /* Result.swift */,
+				C42CE0E020EAEF86008C75DD /* Coordinator */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		C4AE36D6211D3C2C006B399C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C44CD6C521013664007B3A1A /* Data+Codable.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		C4B0B413210670BA004EF1DF /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				C457C6B020EC55BA00855333 /* MusicIdentification */,
-				C42CE0E620EAF6D4008C75DD /* LocationService.swift */,
-				C457C6AE20EC4DCC00855333 /* MusicIdentifier.swift */,
-				C44CD6C82101707C007B3A1A /* MediaPlayer.swift */,
 				C4B0B418210676AC004EF1DF /* VenueAPI */,
 				C4B0B41621067112004EF1DF /* MPMusic+ex.swift */,
 			);
@@ -272,16 +347,14 @@
 			isa = PBXGroup;
 			children = (
 				C4286B3120EC38AC00B3A003 /* libACRCloud_IOS_SDK.a */,
+				C4AE36D2211D3AC4006B399C /* Features */,
 				C4B0B41921067807004EF1DF /* Frameworks */,
-				C44CD6C721013B3A007B3A1A /* Models */,
-				C42CE0E020EAEF86008C75DD /* Coordinator */,
-				C44CD6C221013334007B3A1A /* Scenes */,
+				C4AE36D5211D3C0D006B399C /* Types */,
+				C42CE0DF20EAEF6D008C75DD /* AppDelegate */,
 				C4B0B413210670BA004EF1DF /* Services */,
 				C4FE4CBE20E9EDAA00390B4C /* Assets.xcassets */,
 				C4FE4CC020E9EDAA00390B4C /* LaunchScreen.storyboard */,
 				C4FE4CC320E9EDAA00390B4C /* Info.plist */,
-				C4A353D220EDDA6200AA5F38 /* Result.swift */,
-				C44CD6C521013664007B3A1A /* Data+Codable.swift */,
 			);
 			path = Venew;
 			sourceTree = "<group>";
@@ -552,6 +625,7 @@
 				C4FE4CDB20E9EFA900390B4C /* AppCoordinatorSpec.swift in Sources */,
 				C42CE0E420EAF110008C75DD /* NowPlayingViewModel.swift in Sources */,
 				C4FE4CE720E9F2F700390B4C /* MockCoordinator.swift in Sources */,
+				C4AE36D3211D3B51006B399C /* MediaPlayer.swift in Sources */,
 				C42CE0E220EAF0DD008C75DD /* NowPlayingCoordinator.swift in Sources */,
 				C4FE4CDC20E9EFAC00390B4C /* CoordinatorSpec.swift in Sources */,
 			);

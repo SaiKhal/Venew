@@ -13,53 +13,59 @@ class NowPlayingView: UIView {
 
     lazy var imageview: UIImageView = {
         let view = UIImageView()
-        view.backgroundColor = .red
+        view.backgroundColor = Stylesheet.Colors.Navy
+        view.layer.cornerRadius = 8
+        view.clipsToBounds = true
         return view
     }()
     
     lazy var currentArtistLabel: UILabel = {
         let label = UILabel()
+        label.textColor = .white
         return label
     }()
     
     lazy var currentSongLabel: UILabel = {
         let label = UILabel()
+        label.textColor = .white
         return label
     }()
     
     lazy var locailityLabel: UILabel = {
         let label = UILabel()
+        label.textColor = .white
         return label
     }()
     
     lazy var venueInfoButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .blue
+        button.contentEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10)
+        button.layer.cornerRadius = 5
+        button.backgroundColor = Stylesheet.Colors.DarkGreen
         return button
     }()
     
     lazy var playButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Play", for: .normal)
         return button
     }()
     
     lazy var nextButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Next", for: .normal)
+        button.setImage(UIImage(named:"forwardIcon")!, for: .normal)
         return button
     }()
     
     lazy var rewindButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Rewind", for: .normal)
+        button.setImage(UIImage(named:"rewindIcon")!, for: .normal)
         return button
     }()
     
     lazy var recordButton: UIButton = {
         let button = UIButton()
         button.setTitle("Record", for: .normal)
-        button.backgroundColor = .blue
+        button.backgroundColor = Stylesheet.Colors.DarkGreen
         button.layer.cornerRadius = 10
         button.clipsToBounds = true
         button.contentEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10)
@@ -82,7 +88,7 @@ class NowPlayingView: UIView {
     }
     
     private func setup() {
-        self.backgroundColor = .orange
+        self.backgroundColor = Stylesheet.Colors.MainGreen
         setupImageView()
         setupSongLabel()
         setupArtistLabel()

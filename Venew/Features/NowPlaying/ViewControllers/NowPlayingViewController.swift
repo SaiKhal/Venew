@@ -65,14 +65,14 @@ class NowPlayingViewController: UIViewController {
             .disposed(by: bag)
         
         viewModel.outputs.playbackState
-            .map { state -> String in
+            .map { state -> UIImage in
                 if state == "playing" {
-                    return "Pause"
+                    return UIImage.init(named: "pauseIcon")!
                 } else {
-                    return "Play"
+                    return UIImage.init(named: "playIcon")!
                 }
             }
-            .drive(contentView.playButton.rx.title())
+            .drive(contentView.playButton.rx.image())
             .disposed(by: bag)
         
         /// Inputs
@@ -99,4 +99,5 @@ extension UIView {
         return CGSize(width: self.bounds.width, height: self.bounds.height)
     }
 }
+
 

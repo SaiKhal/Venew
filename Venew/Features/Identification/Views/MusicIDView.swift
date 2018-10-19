@@ -15,34 +15,39 @@ class MusicIDView: UIView {
     
     lazy var songNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Look For Songs"
+        label.text = "Searching..."
+        label.textColor = .white
         return label
     }()
     
     lazy var songArtistLabel: UILabel = {
         let label = UILabel()
-        label.text = "Look For Artist"
+        label.text = ""
+        label.textColor = .white
         return label
     }()
     
     lazy var spinner: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView()
         spinner.hidesWhenStopped = true
-        spinner.backgroundColor = .blue
         return spinner
     }()
     
     lazy var recordButton: UIButton = {
         let button = UIButton()
         button.setTitle("Record", for: .normal)
-        button.backgroundColor = .red
+        button.layer.cornerRadius = 5
+        button.contentEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10)
+        button.backgroundColor = Stylesheet.Colors.MainGreen
         return button
     }()
     
     lazy var audioWaveform: SwiftSiriWaveformView = {
         let waveform = SwiftSiriWaveformView()
         waveform.amplitude = 0.0
-        waveform.backgroundColor = .blue
+        waveform.backgroundColor = Stylesheet.Colors.MainGreen
+        waveform.layer.cornerRadius = 10
+        waveform.clipsToBounds = true
         return waveform
     }()
     
@@ -56,7 +61,7 @@ class MusicIDView: UIView {
     }
     
     func setup() {
-        self.backgroundColor = .white
+        self.backgroundColor = Stylesheet.Colors.DarkGreen
         setupNameLabel()
         setupArtistLabel()
         setupRecordButton()

@@ -122,7 +122,8 @@ final class NowPlayingViewModel: NowPlayingViewModelType, NowPlayingViewModelInp
                     .map { $0.value }
                     .errorOnNil()
                     .map { $0.artistIdOrError() }
-                    .map { $0.value! }
+                    .map { $0.value }
+                    .errorOnNil()
         }
         
         venueInfo = artistID

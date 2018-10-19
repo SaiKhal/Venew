@@ -83,7 +83,7 @@ final class MusicIDViewModel: MusicIDViewModelType, MusicIDViewModelInputs, Musi
                 case let .success(song):
                     return song.metadata.music.first!.artists.first!.name
                 case let .failure(error):
-                    return error.description
+                    return ""
                 }
         }
         

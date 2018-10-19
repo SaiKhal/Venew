@@ -33,11 +33,13 @@
 		C4A353D120EDCAB200AA5F38 /* MusicIDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A353D020EDCAB200AA5F38 /* MusicIDView.swift */; };
 		C4A353D320EDDA6200AA5F38 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A353D220EDDA6200AA5F38 /* Result.swift */; };
 		C4AE36D3211D3B51006B399C /* MediaPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44CD6C82101707C007B3A1A /* MediaPlayer.swift */; };
+		C4AE36D8211D3D42006B399C /* Stylesheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AE36D7211D3D42006B399C /* Stylesheet.swift */; };
+		C4AE36DB211D3DB5006B399C /* UIColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AE36DA211D3DB5006B399C /* UIColorExt.swift */; };
+		C4AE36DD211D4707006B399C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4AE36DC211D4707006B399C /* Assets.xcassets */; };
 		C4B0B415210670C9004EF1DF /* VenueAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B0B414210670C9004EF1DF /* VenueAPIClient.swift */; };
 		C4B0B41721067112004EF1DF /* MPMusic+ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B0B41621067112004EF1DF /* MPMusic+ex.swift */; };
 		C4FAEFA221012534007CE430 /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FAEFA121012534007CE430 /* APIEndpoint.swift */; };
 		C4FE4CB820E9EDA900390B4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FE4CB720E9EDA900390B4C /* AppDelegate.swift */; };
-		C4FE4CBF20E9EDAA00390B4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4FE4CBE20E9EDAA00390B4C /* Assets.xcassets */; };
 		C4FE4CC220E9EDAA00390B4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4FE4CC020E9EDAA00390B4C /* LaunchScreen.storyboard */; };
 		C4FE4CCD20E9EDAA00390B4C /* VenewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FE4CCC20E9EDAA00390B4C /* VenewTests.swift */; };
 		C4FE4CDB20E9EFA900390B4C /* AppCoordinatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FE4CD720E9EFA300390B4C /* AppCoordinatorSpec.swift */; };
@@ -92,12 +94,14 @@
 		C4A353CE20EDBEBE00AA5F38 /* MusicIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicIDViewController.swift; sourceTree = "<group>"; };
 		C4A353D020EDCAB200AA5F38 /* MusicIDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicIDView.swift; sourceTree = "<group>"; };
 		C4A353D220EDDA6200AA5F38 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		C4AE36D7211D3D42006B399C /* Stylesheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stylesheet.swift; sourceTree = "<group>"; };
+		C4AE36DA211D3DB5006B399C /* UIColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExt.swift; sourceTree = "<group>"; };
+		C4AE36DC211D4707006B399C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4B0B414210670C9004EF1DF /* VenueAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VenueAPIClient.swift; path = /Users/Masai/Code/Venew/Venew/Services/VenueAPIClient.swift; sourceTree = "<absolute>"; };
 		C4B0B41621067112004EF1DF /* MPMusic+ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MPMusic+ex.swift"; sourceTree = "<group>"; };
 		C4FAEFA121012534007CE430 /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
 		C4FE4CB420E9EDA900390B4C /* Venew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Venew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4FE4CB720E9EDA900390B4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C4FE4CBE20E9EDAA00390B4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4FE4CC120E9EDAA00390B4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4FE4CC320E9EDAA00390B4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4FE4CC820E9EDAA00390B4C /* VenewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VenewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -293,8 +297,17 @@
 			isa = PBXGroup;
 			children = (
 				C44CD6C521013664007B3A1A /* Data+Codable.swift */,
+				C4AE36DA211D3DB5006B399C /* UIColorExt.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C4AE36D9211D3D85006B399C /* Visuals */ = {
+			isa = PBXGroup;
+			children = (
+				C4AE36D7211D3D42006B399C /* Stylesheet.swift */,
+			);
+			path = Visuals;
 			sourceTree = "<group>";
 		};
 		C4B0B413210670BA004EF1DF /* Services */ = {
@@ -302,6 +315,7 @@
 			children = (
 				C4B0B418210676AC004EF1DF /* VenueAPI */,
 				C4B0B41621067112004EF1DF /* MPMusic+ex.swift */,
+				C4AE36D9211D3D85006B399C /* Visuals */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -352,9 +366,9 @@
 				C4AE36D5211D3C0D006B399C /* Types */,
 				C42CE0DF20EAEF6D008C75DD /* AppDelegate */,
 				C4B0B413210670BA004EF1DF /* Services */,
-				C4FE4CBE20E9EDAA00390B4C /* Assets.xcassets */,
 				C4FE4CC020E9EDAA00390B4C /* LaunchScreen.storyboard */,
 				C4FE4CC320E9EDAA00390B4C /* Info.plist */,
+				C4AE36DC211D4707006B399C /* Assets.xcassets */,
 			);
 			path = Venew;
 			sourceTree = "<group>";
@@ -479,8 +493,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4AE36DD211D4707006B399C /* Assets.xcassets in Resources */,
 				C4FE4CC220E9EDAA00390B4C /* LaunchScreen.storyboard in Resources */,
-				C4FE4CBF20E9EDAA00390B4C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,10 +610,12 @@
 				C4FAEFA221012534007CE430 /* APIEndpoint.swift in Sources */,
 				C4FE4CEC20E9F73200390B4C /* NowPlayingCoordinator.swift in Sources */,
 				C44CD6C621013664007B3A1A /* Data+Codable.swift in Sources */,
+				C4AE36DB211D3DB5006B399C /* UIColorExt.swift in Sources */,
 				C4FE4CB820E9EDA900390B4C /* AppDelegate.swift in Sources */,
 				C4FE4CEE20E9F8A900390B4C /* NowPlayingViewController.swift in Sources */,
 				C4FE4CF020E9F91800390B4C /* NowPlayingViewModel.swift in Sources */,
 				C4A353D120EDCAB200AA5F38 /* MusicIDView.swift in Sources */,
+				C4AE36D8211D3D42006B399C /* Stylesheet.swift in Sources */,
 				C4A353CB20EDB79D00AA5F38 /* MusicIDCoordinator.swift in Sources */,
 				C42CE0E920EAF810008C75DD /* CLLocationManager+Rx.swift in Sources */,
 				C4B0B415210670C9004EF1DF /* VenueAPIClient.swift in Sources */,

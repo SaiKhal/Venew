@@ -23,6 +23,7 @@ final class AppCoordinator: Coordinator {
     
     init(window: UIWindow) {
         let navController = UINavigationController()
+        navController.navigationBar.tintColor = .white
         navController.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navController.navigationBar.shadowImage = UIImage()
         navController.navigationBar.isTranslucent = true

@@ -12,7 +12,7 @@ import RxCocoa
 import RxOptional
 import MediaPlayer
 
-class NowPlayingViewController: UIViewController {
+class NowPlayingViewController: UIViewController, UIPopoverControllerDelegate {
     let viewModel: NowPlayingViewModelType
     let contentView = NowPlayingView()
     let bag = DisposeBag()
@@ -89,8 +89,34 @@ class NowPlayingViewController: UIViewController {
             .disposed(by: bag)
         
         contentView.recordButton.rx.tap
-            .bind { [weak self] in self?.viewModel.inputs.identifySong() }
+//            .bind { [weak self] in self?.viewModel.inputs.identifySong() }
+            .bind { [weak self] in self?.showVC() }
             .disposed(by: bag)
+    }
+    
+    func showVC() {
+        let vc = BlurredVC()
+        vc.modalPresentationStyle = .custom
+        vc.transitioningDelegate = self
+        navigationController?.present(vc, animated: false, completion: nil)
+    }
+    
+}
+
+extension NowPlayingViewController: UIViewControllerTransitioningDelegate {
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        return ModalPresentationController(presentedViewController: presented, presenting: presenting)
+    }
+}
+
+class ModalPresentationController: UIPresentationController {
+    override var frameOfPresentedViewInContainerView: CGRect {
+        guard let containerView = containerView else { return CGRect.zero }
+        let width = containerView.bounds.width / 2
+        let height = containerView.bounds.height / 2
+        let x = containerView.frame.midX - (width / 2)
+        let y = containerView.frame.midY - (height / 2)
+        return containerView.frame
     }
 }
 

@@ -26,6 +26,7 @@
 		C44CD6C621013664007B3A1A /* Data+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44CD6C521013664007B3A1A /* Data+Codable.swift */; };
 		C44CD6C92101707C007B3A1A /* MediaPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44CD6C82101707C007B3A1A /* MediaPlayer.swift */; };
 		C457C6B320EC56D700855333 /* SongACR.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457C6B220EC56D600855333 /* SongACR.swift */; };
+		C48620A9217A5A59005D3DA4 /* BlurredVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48620A8217A5A59005D3DA4 /* BlurredVC.swift */; };
 		C4A353C820ED864300AA5F38 /* MusicIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457C6AE20EC4DCC00855333 /* MusicIdentifier.swift */; };
 		C4A353CB20EDB79D00AA5F38 /* MusicIDCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A353CA20EDB79D00AA5F38 /* MusicIDCoordinator.swift */; };
 		C4A353CD20EDB83F00AA5F38 /* MusicIDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A353CC20EDB83F00AA5F38 /* MusicIDViewModel.swift */; };
@@ -89,6 +90,7 @@
 		C44CD6C82101707C007B3A1A /* MediaPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayer.swift; sourceTree = "<group>"; };
 		C457C6AE20EC4DCC00855333 /* MusicIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicIdentifier.swift; sourceTree = "<group>"; };
 		C457C6B220EC56D600855333 /* SongACR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongACR.swift; sourceTree = "<group>"; };
+		C48620A8217A5A59005D3DA4 /* BlurredVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurredVC.swift; sourceTree = "<group>"; };
 		C4A353CA20EDB79D00AA5F38 /* MusicIDCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicIDCoordinator.swift; sourceTree = "<group>"; };
 		C4A353CC20EDB83F00AA5F38 /* MusicIDViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicIDViewModel.swift; sourceTree = "<group>"; };
 		C4A353CE20EDBEBE00AA5F38 /* MusicIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicIDViewController.swift; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 		C4FE4CAB20E9EDA900390B4C = {
 			isa = PBXGroup;
 			children = (
+				C48620A8217A5A59005D3DA4 /* BlurredVC.swift */,
 				C4286B4720EC3B2F00B3A003 /* ACRCloudDemo_Swift-Bridging-Header.h */,
 				C4FE4CB620E9EDA900390B4C /* Venew */,
 				C4FE4CCB20E9EDAA00390B4C /* VenewTests */,
@@ -622,6 +625,7 @@
 				C42CE0EB20EAFCD3008C75DD /* RxCLLocationManagerDelegateProxy.swift in Sources */,
 				C4A353CD20EDB83F00AA5F38 /* MusicIDViewModel.swift in Sources */,
 				C4FE4CEA20E9F39000390B4C /* AppCoordinator.swift in Sources */,
+				C48620A9217A5A59005D3DA4 /* BlurredVC.swift in Sources */,
 				C4FE4CE520E9F26900390B4C /* Coordinator.swift in Sources */,
 				C42CE0E720EAF6D4008C75DD /* LocationService.swift in Sources */,
 				C4FE4CE320E9F26900390B4C /* MockCoordinator.swift in Sources */,
